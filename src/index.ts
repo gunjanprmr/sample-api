@@ -1,12 +1,13 @@
 /**
  * Required External Modules
  */
+import "reflect-metadata"
 import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-// import { itemsRouter } from "./routes/items.router";
-import { healthRouter } from "./routes/health.router";
+import routes from "./routes/routes";
+import compress from 'compression';
 
 dotenv.config();
 
@@ -27,8 +28,9 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-// app.use("/api/menu/items", itemsRouter);
-app.use("/api/health/status", healthRouter);
+app.disable('x-powered-by'); // Hide information
+app.use(compress());
+routes(app);
 
 /**
  * Server Activation
