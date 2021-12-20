@@ -8,8 +8,7 @@ import {
 export default function asyncWrap(controller: CallableFunction) {
     return async (req: ExpressRequest, res: ExpressResponse, next: NextFunction) => {
         try {
-           const abc = await controller(req, res, next);
-            console.log("abc ", abc);
+           await controller(req, res, next);
         } catch (e) {
             next(e);
         }

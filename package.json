@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
-    "compile": "tsc -p ."
+    "compile": "tsc -p .",
+    "test": "jest --coverage --color"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +29,7 @@
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.13",
     "jest": "^27.4.5",
-    "ts-jest": "^27.1.1",
+    "ts-jest": "^27.1.2",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.4"
   }
