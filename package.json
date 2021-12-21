@@ -2,11 +2,11 @@
   "name": "sample-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
     "compile": "tsc -p .",
-    "test": "jest --coverage --color",
+    "test": "npm run compile && jest --coverage --color",
     "start": "npm run compile && npm run dev",
     "apiTest": "npm run compile && jest './src/apiTests'"
   },

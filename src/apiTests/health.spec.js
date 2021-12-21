@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const request = require('supertest');
-const app = require('../index');
+const app = require('../app');
 const health_service_1 = require("../services/health.service");
 describe('GET /heathStatus', () => {
     it("Receives 200 on successful call", () => __awaiter(void 0, void 0, void 0, function* () {
@@ -23,7 +23,7 @@ describe('GET /heathStatus', () => {
         expect(result.statusCode).toEqual(200);
         expect(JSON.parse(result.text)).toEqual(mockHealthCheckModel);
     }));
-    it("Receives 404 - Not Found on unsuccessful", () => __awaiter(void 0, void 0, void 0, function* () {
+    it("Receives 404 - Not Found on unsuccessful call", () => __awaiter(void 0, void 0, void 0, function* () {
         const result = yield request(app).get("/invalidEndPoint");
         expect(result.statusCode).toEqual(404);
     }));

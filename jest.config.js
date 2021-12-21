@@ -7,6 +7,11 @@ module.exports = {
   testPathIgnorePatterns: ["/lib/", "/node_modules/"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   collectCoverage: true,
+  collectCoverageFrom: [
+    "**/*.ts",
+    "!**/*container.(t|j)s",
+    "!**/*app.(t|j)s"
+  ],
   roots: [
     "<rootDir>/src", // informs jest of the root dir
   ],

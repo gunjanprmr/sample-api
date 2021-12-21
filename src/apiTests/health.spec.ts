@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../index');
+const app = require('../app');
 import { HealthModel } from "../models/health.model";
 import { dateTime } from "../services/health.service";
 

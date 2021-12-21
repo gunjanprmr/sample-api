@@ -1,45 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640123900403" clover="3.2.0">
-  <project timestamp="1640123900403" name="All files">
-    <metrics statements="49" coveredstatements="47" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="8" elements="58" coveredelements="55" complexity="0" loc="49" ncloc="49" packages="5" files="6" classes="6"/>
-    <package name="src">
-      <metrics statements="28" coveredstatements="27" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="index.ts" path="/Users/GParmar/MyPlayground/sample-api/src/index.ts">
-        <metrics statements="21" coveredstatements="20" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-      </file>
-      <file name="ioc.container.ts" path="/Users/GParmar/MyPlayground/sample-api/src/ioc.container.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.controllers">
+<coverage generated="1640124571319" clover="3.2.0">
+  <project timestamp="1640124571319" name="All files">
+    <metrics statements="21" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7" elements="28" coveredelements="27" complexity="0" loc="21" ncloc="21" packages="4" files="4" classes="4"/>
+    <package name="controllers">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="health.controller.ts" path="/Users/GParmar/MyPlayground/sample-api/src/controllers/health.controller.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -51,7 +14,7 @@
         <line num="19" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.routes">
+    <package name="routes">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="routes.ts" path="/Users/GParmar/MyPlayground/sample-api/src/routes/routes.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -63,7 +26,7 @@
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.services">
+    <package name="services">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="health.service.ts" path="/Users/GParmar/MyPlayground/sample-api/src/services/health.service.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -73,7 +36,7 @@
         <line num="10" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.utils">
+    <package name="utils">
       <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="asyncWrap.ts" path="/Users/GParmar/MyPlayground/sample-api/src/utils/asyncWrap.ts">
         <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
