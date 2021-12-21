@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { HealthModel } from "../../models/health.model";
-import HealthService from "../health.service";
+import HealthService, { dateTime } from "../health.service";
 
 describe("HealthService", () => {
     let healthService: HealthService;
@@ -11,7 +11,7 @@ describe("HealthService", () => {
 
     it("Success", async () => {
         const mockHealthCheckModel: HealthModel = {
-            dateTime: healthService.dateTime,
+            dateTime: dateTime,
             description: "Health Check",
             status: "Connected",
         }

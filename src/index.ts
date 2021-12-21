@@ -35,6 +35,8 @@ routes(app);
 /**
  * Server Activation
  */
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
+
+module.exports = server;

@@ -15,15 +15,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.dateTime = void 0;
 const inversify_1 = require("inversify");
+exports.dateTime = new Date().toISOString();
 let HealthService = class HealthService {
-    constructor() {
-        this.dateTime = new Date();
-    }
+    // public readonly dateTime = new Date().toISOString();
     healthCheck() {
         return __awaiter(this, void 0, void 0, function* () {
             return {
-                dateTime: this.dateTime,
+                dateTime: exports.dateTime,
                 description: "Health Check",
                 status: "Connected"
             };
