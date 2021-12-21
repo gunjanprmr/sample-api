@@ -11,7 +11,7 @@ describe("HealthService", () => {
 
     it("Success", async () => {
         const mockHealthCheckModel: HealthModel = {
-            dateTime: new Date(),
+            dateTime: healthService.dateTime,
             description: "Health Check",
             status: "Connected",
         }
