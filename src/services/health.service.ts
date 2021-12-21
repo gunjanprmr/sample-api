@@ -3,13 +3,12 @@ import { HealthModel } from "../models/health.model";
 
 @injectable()
 export default class HealthService {
-
+    public readonly dateTime = new Date();
     public async healthCheck(): Promise<HealthModel> {
-        const healthModel: HealthModel = {
-            dateTime: new Date(),
+        return {
+            dateTime: this.dateTime,
             description: "Health Check",
             status: "Connected"
-        }
-        return healthModel;
+        } as HealthModel;
     }
 }

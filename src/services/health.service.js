@@ -17,14 +17,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 let HealthService = class HealthService {
+    constructor() {
+        this.dateTime = new Date();
+    }
     healthCheck() {
         return __awaiter(this, void 0, void 0, function* () {
-            const healthModel = {
-                dateTime: new Date(),
+            return {
+                dateTime: this.dateTime,
                 description: "Health Check",
                 status: "Connected"
             };
-            return healthModel;
         });
     }
 };

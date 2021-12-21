@@ -13,8 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function asyncWrap(controller) {
     return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
         try {
-            const abc = yield controller(req, res, next);
-            console.log("abc ", abc);
+            yield controller(req, res, next);
         }
         catch (e) {
             next(e);

@@ -1,8 +1,5 @@
 {
     "cSpell.words": [
         "unopinionated"
-    ],
-    "files.exclude": {
-        "**/*.js when: $(basename).ts": true
-    }
+    ]
 }

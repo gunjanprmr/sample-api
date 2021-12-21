@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
     "compile": "tsc -p .",
-    "test": "jest --coverage --color"
+    "test": "jest --coverage --color",
+    "start": "npm run compile && npm run dev"
   },
   "keywords": [],
   "author": "",
