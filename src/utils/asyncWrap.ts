@@ -4,7 +4,11 @@ import {
     NextFunction, 
 } from 'express';
 
-// Wraps async functions, catching all errors and sending them forward to express error handler
+
+/**
+ * Wraps async functions, catching all errors and sending them forward to express error handler
+ * @param controller  
+ */
 export default function asyncWrap(controller: CallableFunction) {
     return async (req: ExpressRequest, res: ExpressResponse, next: NextFunction) => {
         try {

@@ -6,6 +6,9 @@ import {
     Response as ExpressResponse, 
 } from 'express';
 
+/**
+ * To check health of the application
+ */
 @injectable()
 export default class HealthController {
 
@@ -13,6 +16,12 @@ export default class HealthController {
         @inject("HealthService") private HealthService: HealthService,
     ) { }
 
+    /**
+     * Returns health check
+     * @param req 
+     * @param res 
+     * @returns HealthModel
+     */
     public async healthCheck(req: ExpressRequest, res: ExpressResponse): Promise<HealthModel> {
         const returnThis = await this.HealthService.healthCheck();
         res.send(returnThis);

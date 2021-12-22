@@ -21,25 +21,43 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const mssql_1 = __importDefault(require("mssql"));
 const database_1 = __importDefault(require("../utils/database"));
+/**
+ * User(s) related information
+ */
 let UserService = class UserService {
+    /**
+     *
+     * @returns all users
+     */
     getUsers() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const sqlConnection = (0, database_1.default)();
-                // const connect = await sql.connect({
-                //     user: process.env.DB_USER,
-                //     password: process.env.DB_PASSWORD,
-                //     server: process.env.DB_HOST || '',
-                //     database: process.env.DB_NAME,
-                //     port: 1433,
-                //     parseJSON: true,
-                // });
-                const connect = yield mssql_1.default.connect(sqlConnection);
-                const result = yield connect.request().query("SELECT * FROM [User]");
-                return result.recordsets;
+                const connect = yield mssql_1.default.connect((0, database_1.default)());
+                const users = yield connect.request().query("SELECT * FROM [User]");
+                return users.recordsets;
             }
             catch (error) {
                 console.log("getUsers Error", error);
+                throw error;
+            }
+        });
+    }
+    /**
+     * Returns specific user
+     * @param userId
+     */
+    getUser(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const connect = yield mssql_1.default.connect((0, database_1.default)());
+                console.log("userId ", userId);
+                const user = yield connect.request()
+                    .input('input_parameter', mssql_1.default.Int, userId)
+                    .query("SELECT * FROM [User] WHERE UserId = @input_parameter");
+                return user.recordset;
+            }
+            catch (error) {
+                console.log("getUser Error", error);
                 throw error;
             }
         });

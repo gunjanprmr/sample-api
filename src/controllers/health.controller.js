@@ -19,10 +19,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
+/**
+ * To check health of the application
+ */
 let HealthController = class HealthController {
     constructor(HealthService) {
         this.HealthService = HealthService;
     }
+    /**
+     * Returns health check
+     * @param req
+     * @param res
+     * @returns HealthModel
+     */
     healthCheck(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const returnThis = yield this.HealthService.healthCheck();

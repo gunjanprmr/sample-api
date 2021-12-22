@@ -19,13 +19,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
+/**
+ * Retrieve user related information.
+ */
 let UserController = class UserController {
     constructor(UserService) {
         this.UserService = UserService;
     }
+    /**
+     * Get all users.
+     * @param req
+     * @param res
+     * @returns all users
+     */
     getUsers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const returnThis = yield this.UserService.getUsers();
+            res.send(returnThis);
+            return returnThis;
+        });
+    }
+    /**
+     * Get specific user
+     * @param req
+     * @param res
+     * @param userId
+     * @returns
+     */
+    getUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const userId = +req.params.userId;
+            const returnThis = yield this.UserService.getUser(userId);
             res.send(returnThis);
             return returnThis;
         });

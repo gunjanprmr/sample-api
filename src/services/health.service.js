@@ -18,8 +18,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.dateTime = void 0;
 const inversify_1 = require("inversify");
 exports.dateTime = new Date().toISOString();
+/**
+ * Application health check
+ */
 let HealthService = class HealthService {
-    // public readonly dateTime = new Date().toISOString();
+    /**
+     *
+     * @returns health check
+     */
     healthCheck() {
         return __awaiter(this, void 0, void 0, function* () {
             return {

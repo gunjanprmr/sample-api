@@ -9,7 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Wraps async functions, catching all errors and sending them forward to express error handler
+/**
+ * Wraps async functions, catching all errors and sending them forward to express error handler
+ * @param controller
+ */
 function asyncWrap(controller) {
     return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
         try {
