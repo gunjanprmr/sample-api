@@ -34,7 +34,7 @@ let UserService = class UserService {
             try {
                 const connect = yield mssql_1.default.connect((0, database_1.default)());
                 const users = yield connect.request().query("SELECT * FROM [User]");
-                return users.recordsets;
+                return users.recordset;
             }
             catch (error) {
                 console.log("getUsers Error", error);
@@ -50,7 +50,6 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const connect = yield mssql_1.default.connect((0, database_1.default)());
-                console.log("userId ", userId);
                 const user = yield connect.request()
                     .input('input_parameter', mssql_1.default.Int, userId)
                     .query("SELECT * FROM [User] WHERE UserId = @input_parameter");

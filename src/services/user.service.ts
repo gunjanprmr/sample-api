@@ -16,7 +16,7 @@ export default class UserService {
         try {
             const connect = await sql.connect(sqlConnect());
             const users = await connect.request().query("SELECT * FROM [User]");
-            return users.recordsets;
+            return users.recordset;
         } catch (error) {
             console.log("getUsers Error", error);
             throw error;
