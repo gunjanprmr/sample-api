@@ -53,7 +53,7 @@ let UserService = class UserService {
                 const user = yield connect.request()
                     .input('input_parameter', mssql_1.default.Int, userId)
                     .query("SELECT * FROM [User] WHERE UserId = @input_parameter");
-                return user.recordset;
+                return user.recordset[0];
             }
             catch (error) {
                 console.log("getUser Error", error);

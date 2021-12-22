@@ -1,5 +1,6 @@
 import { injectable } from "inversify";
 import sql from "mssql";
+import { UserModel } from "../models/user.model";
 import sqlConnect from "../utils/database";
 
 /**
@@ -12,11 +13,11 @@ export default class UserService {
      * 
      * @returns all users 
      */
-    public async getUsers(): Promise<any> {
+    public async getUsers(): Promise<UserModel[]> {
         try {
             const connect = await sql.connect(sqlConnect());
             const users = await connect.request().query("SELECT * FROM [User]");
-            return users.recordset;
+            return users.recordset as UserModel[];
         } catch (error) {
             console.log("getUsers Error", error);
             throw error;
@@ -27,13 +28,13 @@ export default class UserService {
      * Returns specific user
      * @param userId 
      */
-    public async getUser(userId: number): Promise<any> {
+    public async getUser(userId: number): Promise<UserModel> {
         try {
             const connect = await sql.connect(sqlConnect());
             const user = await connect.request()
                 .input('input_parameter', sql.Int, userId)
                 .query("SELECT * FROM [User] WHERE UserId = @input_parameter");
-                return user.recordset;
+            return user.recordset[0] as UserModel;
         } catch (error) {
             console.log("getUser Error", error);
             throw error;
