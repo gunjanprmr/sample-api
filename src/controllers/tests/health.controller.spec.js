@@ -34,7 +34,7 @@ describe("HealthController", () => {
         });
         healthController = new health_controller_1.default(mockHealthService);
     });
-    describe("HealthCheck", () => {
+    describe("healthCheck", () => {
         it("success", () => __awaiter(void 0, void 0, void 0, function* () {
             yield healthController.healthCheck(req, res);
             expect(res.send).toHaveBeenCalled();

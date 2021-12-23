@@ -34,9 +34,15 @@ let UserController = class UserController {
      */
     getUsers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const returnThis = yield this.UserService.getUsers();
-            res.send(returnThis);
-            return returnThis;
+            try {
+                const returnThis = yield this.UserService.getUsers();
+                res.send(returnThis);
+                return returnThis;
+            }
+            catch (error) {
+                // console.log("getUsers error ", error);
+                throw error;
+            }
         });
     }
     /**
@@ -48,10 +54,15 @@ let UserController = class UserController {
      */
     getUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const userId = +req.params.userId;
-            const returnThis = yield this.UserService.getUser(userId);
-            res.send(returnThis);
-            return returnThis;
+            try {
+                const userId = +req.params.userId;
+                const returnThis = yield this.UserService.getUser(userId);
+                res.send(returnThis);
+                return returnThis;
+            }
+            catch (error) {
+                throw error;
+            }
         });
     }
 };

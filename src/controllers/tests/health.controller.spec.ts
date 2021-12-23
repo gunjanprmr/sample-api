@@ -27,7 +27,7 @@ describe("HealthController", () => {
         healthController = new HealthController(mockHealthService);
     });
 
-    describe("HealthCheck", () => {
+    describe("healthCheck", () => {
         it("success", async () => {
             await healthController.healthCheck(req, res);
             expect(res.send).toHaveBeenCalled();

@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "unopinionated"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

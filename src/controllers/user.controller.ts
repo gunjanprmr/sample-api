@@ -22,9 +22,14 @@ export default class UserController {
      * @returns all users
      */
     public async getUsers(req: ExpressRequest, res: ExpressResponse): Promise<any> {
-        const returnThis = await this.UserService.getUsers();
-        res.send(returnThis);
-        return returnThis;
+        try {
+            const returnThis = await this.UserService.getUsers();
+            res.send(returnThis);
+            return returnThis; 
+        } catch (error) {
+            // console.log("getUsers error ", error);
+            throw error;
+        }
     }
 
     /**
@@ -35,9 +40,14 @@ export default class UserController {
      * @returns 
      */
     public async getUser(req: ExpressRequest, res: ExpressResponse): Promise<any> {
-        const userId = +req.params.userId;
-        const returnThis = await this.UserService.getUser(userId);
-        res.send(returnThis);
-        return returnThis;
+        try {
+            const userId = +req.params.userId;
+            const returnThis = await this.UserService.getUser(userId);
+            res.send(returnThis);
+            return returnThis;
+        } catch (error) {
+            throw error;
+        }
+        
     }
 }
