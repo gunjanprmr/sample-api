@@ -1,6 +1,7 @@
-import { injectable } from "inversify";
+import { inject, injectable } from "inversify";
 import sql from "mssql";
 import { UserModel } from "../models/user.model";
+import UserRepository from "../repositories/user.repository";
 import sqlConnect from "../utils/database";
 
 /**
@@ -9,17 +10,18 @@ import sqlConnect from "../utils/database";
 @injectable()
 export default class UserService {
 
+    constructor(
+        @inject("UserRepository") private userRepository: UserRepository,
+    ) {}
+
     /**
      * 
      * @returns all users 
      */
     public async getUsers(): Promise<UserModel[]> {
-        try {
-            const connect = await sql.connect(sqlConnect());
-            const users = await connect.request().query("SELECT * FROM [User]");
-            return users.recordset as UserModel[];
+        try {   
+            return await this.userRepository.getUsers();
         } catch (error) {
-            console.log("getUsers Error", error);
             throw error;
         }
     }
@@ -30,13 +32,8 @@ export default class UserService {
      */
     public async getUser(userId: number): Promise<UserModel> {
         try {
-            const connect = await sql.connect(sqlConnect());
-            const user = await connect.request()
-                .input('input_parameter', sql.Int, userId)
-                .query("SELECT * FROM [User] WHERE UserId = @input_parameter");
-            return user.recordset[0] as UserModel;
+            return await this.userRepository.getUser(userId);
         } catch (error) {
-            console.log("getUser Error", error);
             throw error;
         }
     }

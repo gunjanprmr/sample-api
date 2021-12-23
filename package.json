@@ -64,7 +64,8 @@
       "**/*.ts",
       "!**/*container.(t|j)s",
       "!**/*app.(t|j)s",
-      "!**/*mockData.(t|j)s"
+      "!**/*mockData.(t|j)s",
+      "!**/*repository.(t|j)s"
     ],
     "roots": [
       "<rootDir>/src"
