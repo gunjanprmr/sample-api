@@ -23,8 +23,12 @@ export default class HealthController {
      * @returns HealthModel
      */
     public async healthCheck(req: ExpressRequest, res: ExpressResponse): Promise<HealthModel> {
-        const returnThis = await this.HealthService.healthCheck();
-        res.send(returnThis);
-        return returnThis;
+        try {
+            const returnThis = await this.HealthService.healthCheck();
+            res.send(returnThis);
+            return returnThis;
+        } catch (error) {
+            throw error;
+        }
     }
 }

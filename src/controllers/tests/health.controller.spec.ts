@@ -28,13 +28,27 @@ describe("HealthController", () => {
     });
 
     describe("healthCheck", () => {
-        it("success", async () => {
+        it("returns successful response", async () => {
             await healthController.healthCheck(req, res);
             expect(res.send).toHaveBeenCalled();
             expect(res.send).toBeCalledTimes(1);
             expect(req).not.toHaveBeenCalled();
             expect(mockHealthService.healthCheck).toHaveBeenCalled();
             expect(mockHealthService.healthCheck).toBeCalledTimes(1);
+        });
+
+        it("handles error", async () => {
+            const fakeError = "Can't get health status";
+            mockHealthService.healthCheck = jest.fn(() => {
+                return Promise.reject(fakeError);
+            });
+
+            try {
+                await healthController.healthCheck(req, res);
+                fail("shouldn't be here")
+            } catch (error) {
+                expect(error).toEqual(fakeError);
+            }
         })
     })
 });

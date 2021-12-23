@@ -35,13 +35,26 @@ describe("HealthController", () => {
         healthController = new health_controller_1.default(mockHealthService);
     });
     describe("healthCheck", () => {
-        it("success", () => __awaiter(void 0, void 0, void 0, function* () {
+        it("returns successful response", () => __awaiter(void 0, void 0, void 0, function* () {
             yield healthController.healthCheck(req, res);
             expect(res.send).toHaveBeenCalled();
             expect(res.send).toBeCalledTimes(1);
             expect(req).not.toHaveBeenCalled();
             expect(mockHealthService.healthCheck).toHaveBeenCalled();
             expect(mockHealthService.healthCheck).toBeCalledTimes(1);
+        }));
+        it("handles error", () => __awaiter(void 0, void 0, void 0, function* () {
+            const fakeError = "Can't get health status";
+            mockHealthService.healthCheck = jest.fn(() => {
+                return Promise.reject(fakeError);
+            });
+            try {
+                yield healthController.healthCheck(req, res);
+                fail("shouldn't be here");
+            }
+            catch (error) {
+                expect(error).toEqual(fakeError);
+            }
         }));
     });
 });

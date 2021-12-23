@@ -34,9 +34,14 @@ let HealthController = class HealthController {
      */
     healthCheck(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const returnThis = yield this.HealthService.healthCheck();
-            res.send(returnThis);
-            return returnThis;
+            try {
+                const returnThis = yield this.HealthService.healthCheck();
+                res.send(returnThis);
+                return returnThis;
+            }
+            catch (error) {
+                throw error;
+            }
         });
     }
 };

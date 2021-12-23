@@ -27,7 +27,6 @@ export default class UserController {
             res.send(returnThis);
             return returnThis; 
         } catch (error) {
-            // console.log("getUsers error ", error);
             throw error;
         }
     }

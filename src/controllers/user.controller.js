@@ -40,7 +40,6 @@ let UserController = class UserController {
                 return returnThis;
             }
             catch (error) {
-                // console.log("getUsers error ", error);
                 throw error;
             }
         });

@@ -63,7 +63,8 @@
     "collectCoverageFrom": [
       "**/*.ts",
       "!**/*container.(t|j)s",
-      "!**/*app.(t|j)s"
+      "!**/*app.(t|j)s",
+      "!**/*mockData.(t|j)s"
     ],
     "roots": [
       "<rootDir>/src"
