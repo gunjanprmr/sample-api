@@ -28,6 +28,13 @@ describe("HealthController", () => {
             return Promise.resolve();
         });
         jest.doMock('../../services/health.service.ts', () => mockHealthService);
+        mockLoggerService = jest.fn();
+        mockLoggerService.info = jest.fn(() => {
+            return Promise.resolve();
+        });
+        mockLoggerService.error = jest.fn(() => {
+            return Promise.resolve();
+        });
         req = jest.fn();
         res = jest.fn();
         res.send = jest.fn(() => {

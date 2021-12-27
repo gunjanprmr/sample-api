@@ -25,8 +25,6 @@ let LoggerService = class LoggerService {
     logger(filename) {
         return __awaiter(this, void 0, void 0, function* () {
             return (0, winston_1.createLogger)({
-                // level: "info",
-                // format: winston.format.json(),
                 format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.timestamp(), winston_1.format.printf(({ timestamp, level, message, service }) => {
                     return `[${timestamp}] ${service} ${level}: ${JSON.stringify(message)}`;
                 })),
@@ -35,11 +33,75 @@ let LoggerService = class LoggerService {
                 //         filename: '../logs/logs.log'
                 //     }),
                 // ],
+                transports: [new winston_1.transports.Console()],
                 defaultMeta: {
                     service: filename,
                 },
-                transports: [new winston_1.transports.Console()]
             });
+        });
+    }
+    /**
+     *
+     * @param filename: Caller
+     * @param response: returns INFO level
+     * @returns
+     */
+    info(filename, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return (yield this.logger(filename)).info(response);
+            }
+            catch (error) {
+                throw error;
+            }
+        });
+    }
+    /**
+     *
+     * @param filename: Caller
+     * @param response: returns ERROR level
+     * @returns
+     */
+    error(filename, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return (yield this.logger(filename)).error(response);
+            }
+            catch (error) {
+                throw error;
+            }
+        });
+    }
+    /**
+ *
+ * @param filename: Caller
+ * @param response: returns WARN level
+ * @returns
+ */
+    warn(filename, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return (yield this.logger(filename)).warn(response);
+            }
+            catch (error) {
+                throw error;
+            }
+        });
+    }
+    /**
+*
+* @param filename: Caller
+* @param response: returns DEBUG level
+* @returns
+*/
+    debug(filename, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return (yield this.logger(filename)).debug(response);
+            }
+            catch (error) {
+                throw error;
+            }
         });
     }
 };

@@ -27,10 +27,11 @@ export default class HealthController {
     public async healthCheck(req: ExpressRequest, res: ExpressResponse): Promise<HealthModel> {
         try {
             const response = await this.HealthService.healthCheck();
-            (await this.loggerService.logger(this.constructor.name)).error(response);
+            this.loggerService.info(this.constructor.name, response);
             res.send(response);
             return response;
         } catch (error) {
+            this.loggerService.error(this.constructor.name, error);
             throw error;
         }
     }
