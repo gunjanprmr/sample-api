@@ -1,5 +1,6 @@
-import { injectable } from "inversify";
+import { inject, injectable } from "inversify";
 import { HealthModel } from "../models/health.model";
+import LoggerService from "../services/logger.service";
 
 export const dateTime = new Date().toISOString();
 
@@ -9,15 +10,25 @@ export const dateTime = new Date().toISOString();
 @injectable()
 export default class HealthService {
 
+    constructor(
+        @inject("LoggerService") private loggerService: LoggerService,
+    ) { }
     /**
      * 
      * @returns health check
      */
     public async healthCheck(): Promise<HealthModel> {
-        return {
-            dateTime: dateTime,
-            description: "Health Check",
-            status: "Connected"
-        } as HealthModel;
+        try {
+            const response: HealthModel = {
+                dateTime: dateTime,
+                description: "Health Check",
+                status: "Connected"
+            };
+            this.loggerService.info(this.constructor.name, response);
+            return response;
+        } catch (error) {
+            this.loggerService.error(this.constructor.name, error);
+            throw error;
+        }
     }
 }

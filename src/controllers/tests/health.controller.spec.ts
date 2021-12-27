@@ -58,6 +58,6 @@ describe("HealthController", () => {
             } catch (error) {
                 expect(error).toEqual(fakeError);
             }
-        })
+        });
     })
 });

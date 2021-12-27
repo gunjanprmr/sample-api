@@ -32,8 +32,16 @@ require("reflect-metadata");
 const health_service_1 = __importStar(require("../health.service"));
 describe("HealthService", () => {
     let healthService;
+    let mockLoggerService;
     beforeEach(() => __awaiter(void 0, void 0, void 0, function* () {
-        healthService = new health_service_1.default();
+        mockLoggerService = jest.fn();
+        mockLoggerService.info = jest.fn(() => {
+            return Promise.resolve();
+        });
+        mockLoggerService.error = jest.fn(() => {
+            return Promise.resolve();
+        });
+        healthService = new health_service_1.default(mockLoggerService);
     }));
     it("Success", () => __awaiter(void 0, void 0, void 0, function* () {
         const mockHealthCheckModel = {
@@ -43,5 +51,18 @@ describe("HealthService", () => {
         };
         const output = yield healthService.healthCheck();
         expect(output).toEqual(mockHealthCheckModel);
+    }));
+    it("handles error", () => __awaiter(void 0, void 0, void 0, function* () {
+        const fakeError = "Can't get health status";
+        healthService.healthCheck = jest.fn(() => {
+            return Promise.reject(fakeError);
+        });
+        try {
+            yield healthService.healthCheck();
+            fail("shouldn't be here");
+        }
+        catch (error) {
+            expect(error).toEqual(fakeError);
+        }
     }));
 });

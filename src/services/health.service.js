@@ -5,6 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -22,21 +25,33 @@ exports.dateTime = new Date().toISOString();
  * Application health check
  */
 let HealthService = class HealthService {
+    constructor(loggerService) {
+        this.loggerService = loggerService;
+    }
     /**
      *
      * @returns health check
      */
     healthCheck() {
         return __awaiter(this, void 0, void 0, function* () {
-            return {
-                dateTime: exports.dateTime,
-                description: "Health Check",
-                status: "Connected"
-            };
+            try {
+                const response = {
+                    dateTime: exports.dateTime,
+                    description: "Health Check",
+                    status: "Connected"
+                };
+                this.loggerService.info(this.constructor.name, response);
+                return response;
+            }
+            catch (error) {
+                this.loggerService.error(this.constructor.name, error);
+                throw error;
+            }
         });
     }
 };
 HealthService = __decorate([
-    (0, inversify_1.injectable)()
+    (0, inversify_1.injectable)(),
+    __param(0, (0, inversify_1.inject)("LoggerService"))
 ], HealthService);
 exports.default = HealthService;
