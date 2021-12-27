@@ -17,6 +17,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const winston_1 = require("winston");
+const fs = require('fs');
+const logDir = 'logs';
 let LoggerService = class LoggerService {
     /**
      *
@@ -24,16 +26,20 @@ let LoggerService = class LoggerService {
      */
     logger(filename) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (!fs.existsSync(logDir)) {
+                fs.mkdirSync(logDir);
+            }
             return (0, winston_1.createLogger)({
                 format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.timestamp(), winston_1.format.printf(({ timestamp, level, message, service }) => {
                     return `[${timestamp}] ${service} ${level}: ${JSON.stringify(message)}`;
                 })),
-                // transports: [
-                //     new winston.transports.File({
-                //         filename: '../logs/logs.log'
-                //     }),
-                // ],
-                transports: [new winston_1.transports.Console()],
+                transports: [
+                    new winston_1.transports.File({
+                        filename: './logs/winston.log',
+                        // level: 'info' || 'error',
+                    }),
+                ],
+                exitOnError: false,
                 defaultMeta: {
                     service: filename,
                 },
