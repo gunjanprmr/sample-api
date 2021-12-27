@@ -19,12 +19,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
+// const logger = require('../services/logger.service')
 /**
  * To check health of the application
  */
 let HealthController = class HealthController {
-    constructor(HealthService) {
+    constructor(HealthService, loggerService) {
         this.HealthService = HealthService;
+        this.loggerService = loggerService;
     }
     /**
      * Returns health check
@@ -35,9 +37,11 @@ let HealthController = class HealthController {
     healthCheck(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const returnThis = yield this.HealthService.healthCheck();
-                res.send(returnThis);
-                return returnThis;
+                const response = yield this.HealthService.healthCheck();
+                (yield this.loggerService.logger(this.constructor.name)).error(response);
+                // logger.info("healthCheck -> ", response);
+                res.send(response);
+                return response;
             }
             catch (error) {
                 throw error;
@@ -47,6 +51,7 @@ let HealthController = class HealthController {
 };
 HealthController = __decorate([
     (0, inversify_1.injectable)(),
-    __param(0, (0, inversify_1.inject)("HealthService"))
+    __param(0, (0, inversify_1.inject)("HealthService")),
+    __param(1, (0, inversify_1.inject)("LoggerService"))
 ], HealthController);
 exports.default = HealthController;

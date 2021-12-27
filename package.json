@@ -21,7 +21,8 @@
     "helmet": "^4.6.0",
     "inversify": "^6.0.1",
     "mssql": "^7.3.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/traverse": "^7.16.5",
@@ -78,6 +79,8 @@
         "statements": 80
       }
     },
-    "setupFiles": ["<rootDir>/.jest/setEnvVars.js"]
+    "setupFiles": [
+      "<rootDir>/.jest/setEnvVars.js"
+    ]
   }
 }

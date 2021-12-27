@@ -17,6 +17,7 @@ const health_controller_1 = __importDefault(require("../health.controller"));
 describe("HealthController", () => {
     let healthController;
     let mockHealthService;
+    let mockLoggerService;
     let req;
     let res;
     beforeEach(() => {
@@ -32,7 +33,7 @@ describe("HealthController", () => {
         res.send = jest.fn(() => {
             return Promise.resolve();
         });
-        healthController = new health_controller_1.default(mockHealthService);
+        healthController = new health_controller_1.default(mockHealthService, mockLoggerService);
     });
     describe("healthCheck", () => {
         it("returns successful response", () => __awaiter(void 0, void 0, void 0, function* () {

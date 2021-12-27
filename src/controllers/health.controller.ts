@@ -5,6 +5,7 @@ import {
     Request as ExpressRequest, 
     Response as ExpressResponse, 
 } from 'express';
+import LoggerService from "../services/logger.service";
 
 /**
  * To check health of the application
@@ -14,6 +15,7 @@ export default class HealthController {
 
     constructor(
         @inject("HealthService") private HealthService: HealthService,
+        @inject("LoggerService") private loggerService: LoggerService,
     ) { }
 
     /**
@@ -24,9 +26,10 @@ export default class HealthController {
      */
     public async healthCheck(req: ExpressRequest, res: ExpressResponse): Promise<HealthModel> {
         try {
-            const returnThis = await this.HealthService.healthCheck();
-            res.send(returnThis);
-            return returnThis;
+            const response = await this.HealthService.healthCheck();
+            (await this.loggerService.logger(this.constructor.name)).error(response);
+            res.send(response);
+            return response;
         } catch (error) {
             throw error;
         }

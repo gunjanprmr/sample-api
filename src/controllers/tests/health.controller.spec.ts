@@ -5,6 +5,7 @@ describe("HealthController", () => {
 
     let healthController: HealthController;
     let mockHealthService: any;
+    let mockLoggerService: any;
     let req: any;
     let res: any;
     
@@ -24,7 +25,7 @@ describe("HealthController", () => {
             return Promise.resolve();
         });
 
-        healthController = new HealthController(mockHealthService);
+        healthController = new HealthController(mockHealthService, mockLoggerService);
     });
 
     describe("healthCheck", () => {
