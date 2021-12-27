@@ -1,8 +1,7 @@
 import { inject, injectable } from "inversify";
-import sql from "mssql";
 import { UserModel } from "../models/user.model";
 import UserRepository from "../repositories/user.repository";
-import sqlConnect from "../utils/database";
+import LoggerService from "../services/logger.service";
 
 /**
  * User(s) related information
@@ -12,6 +11,7 @@ export default class UserService {
 
     constructor(
         @inject("UserRepository") private userRepository: UserRepository,
+        @inject("LoggerService") private loggerService: LoggerService,
     ) {}
 
     /**
@@ -20,8 +20,11 @@ export default class UserService {
      */
     public async getUsers(): Promise<UserModel[]> {
         try {   
-            return await this.userRepository.getUsers();
+            const response = await this.userRepository.getUsers();
+            this.loggerService.info(this.constructor.name, response);
+            return response;
         } catch (error) {
+            this.loggerService.error(this.constructor.name, error);
             throw error;
         }
     }
@@ -32,8 +35,11 @@ export default class UserService {
      */
     public async getUser(userId: number): Promise<UserModel> {
         try {
-            return await this.userRepository.getUser(userId);
+            const response = await this.userRepository.getUser(userId);
+            this.loggerService.info(this.constructor.name, response);
+            return response;
         } catch (error) {
+            this.loggerService.error(this.constructor.name, error);
             throw error;
         }
     }

@@ -23,8 +23,9 @@ const inversify_1 = require("inversify");
  * User(s) related information
  */
 let UserService = class UserService {
-    constructor(userRepository) {
+    constructor(userRepository, loggerService) {
         this.userRepository = userRepository;
+        this.loggerService = loggerService;
     }
     /**
      *
@@ -33,9 +34,12 @@ let UserService = class UserService {
     getUsers() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.userRepository.getUsers();
+                const response = yield this.userRepository.getUsers();
+                this.loggerService.info(this.constructor.name, response);
+                return response;
             }
             catch (error) {
+                this.loggerService.error(this.constructor.name, error);
                 throw error;
             }
         });
@@ -47,9 +51,12 @@ let UserService = class UserService {
     getUser(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.userRepository.getUser(userId);
+                const response = yield this.userRepository.getUser(userId);
+                this.loggerService.info(this.constructor.name, response);
+                return response;
             }
             catch (error) {
+                this.loggerService.error(this.constructor.name, error);
                 throw error;
             }
         });
@@ -57,6 +64,7 @@ let UserService = class UserService {
 };
 UserService = __decorate([
     (0, inversify_1.injectable)(),
-    __param(0, (0, inversify_1.inject)("UserRepository"))
+    __param(0, (0, inversify_1.inject)("UserRepository")),
+    __param(1, (0, inversify_1.inject)("LoggerService"))
 ], UserService);
 exports.default = UserService;

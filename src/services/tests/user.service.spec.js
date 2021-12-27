@@ -18,6 +18,7 @@ const user_service_1 = __importDefault(require("../user.service"));
 describe("UserService", () => {
     let userService;
     let mockUserRepository;
+    let mockLoggerService;
     beforeEach(() => {
         jest.resetModules();
         jest.resetAllMocks();
@@ -28,7 +29,14 @@ describe("UserService", () => {
         mockUserRepository.getUser = jest.fn(() => {
             return Promise.resolve(user_mockData_1.mockUser);
         });
-        userService = new user_service_1.default(mockUserRepository);
+        mockLoggerService = jest.fn();
+        mockLoggerService.info = jest.fn(() => {
+            return Promise.resolve();
+        });
+        mockLoggerService.error = jest.fn(() => {
+            return Promise.resolve();
+        });
+        userService = new user_service_1.default(mockUserRepository, mockLoggerService);
     });
     describe("getUsers", () => {
         it("returns successful list of users", () => __awaiter(void 0, void 0, void 0, function* () {

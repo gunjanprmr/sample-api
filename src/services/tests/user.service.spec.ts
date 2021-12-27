@@ -5,6 +5,7 @@ import UserService from "../user.service";
 describe("UserService", () => {
     let userService: UserService;
     let mockUserRepository: any;
+    let mockLoggerService: any;
 
     beforeEach(() => {
         jest.resetModules();
@@ -18,7 +19,15 @@ describe("UserService", () => {
             return Promise.resolve(mockUser);
         });
 
-        userService = new UserService(mockUserRepository);
+        mockLoggerService = jest.fn();
+        mockLoggerService.info = jest.fn(() => {
+            return Promise.resolve();
+        });
+        mockLoggerService.error = jest.fn(() => {
+            return Promise.resolve();
+        });
+
+        userService = new UserService(mockUserRepository, mockLoggerService);
     });
 
     describe("getUsers", () => {
