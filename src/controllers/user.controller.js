@@ -23,8 +23,9 @@ const inversify_1 = require("inversify");
  * Retrieve user related information.
  */
 let UserController = class UserController {
-    constructor(UserService) {
+    constructor(UserService, loggerService) {
         this.UserService = UserService;
+        this.loggerService = loggerService;
     }
     /**
      * Get all users.
@@ -35,11 +36,13 @@ let UserController = class UserController {
     getUsers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const returnThis = yield this.UserService.getUsers();
-                res.send(returnThis);
-                return returnThis;
+                const response = yield this.UserService.getUsers();
+                this.loggerService.info(this.constructor.name, response);
+                res.send(response);
+                return response;
             }
             catch (error) {
+                this.loggerService.error(this.constructor.name, error);
                 throw error;
             }
         });
@@ -55,11 +58,13 @@ let UserController = class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const userId = +req.params.userId;
-                const returnThis = yield this.UserService.getUser(userId);
-                res.send(returnThis);
-                return returnThis;
+                const response = yield this.UserService.getUser(userId);
+                this.loggerService.info(this.constructor.name, response);
+                res.send(response);
+                return response;
             }
             catch (error) {
+                this.loggerService.error(this.constructor.name, error);
                 throw error;
             }
         });
@@ -67,6 +72,7 @@ let UserController = class UserController {
 };
 UserController = __decorate([
     (0, inversify_1.injectable)(),
-    __param(0, (0, inversify_1.inject)("UserService"))
+    __param(0, (0, inversify_1.inject)("UserService")),
+    __param(1, (0, inversify_1.inject)("LoggerService"))
 ], UserController);
 exports.default = UserController;

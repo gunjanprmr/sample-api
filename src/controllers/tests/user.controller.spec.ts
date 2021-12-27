@@ -5,6 +5,7 @@ import UserController from "../user.controller";
 describe("UserController", () => {
     let userController: UserController;
     let mockUserService: any;
+    let mockLoggerService: any;
     let req: any;
     let res: any;
 
@@ -21,6 +22,14 @@ describe("UserController", () => {
             return Promise.resolve(mockUser);
         });
 
+        mockLoggerService = jest.fn();
+        mockLoggerService.info = jest.fn(() => {
+            return Promise.resolve();
+        });
+        mockLoggerService.error = jest.fn(() => {
+            return Promise.resolve();
+        });
+
         req = jest.fn();
         req.params = jest.fn(() => {
             return Promise.resolve();
@@ -34,7 +43,7 @@ describe("UserController", () => {
             return Promise.resolve();
         });
 
-        userController = new UserController(mockUserService);
+        userController = new UserController(mockUserService, mockLoggerService);
     });
 
     describe("getUsers", () => {

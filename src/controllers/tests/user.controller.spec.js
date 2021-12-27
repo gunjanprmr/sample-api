@@ -18,6 +18,7 @@ const user_controller_1 = __importDefault(require("../user.controller"));
 describe("UserController", () => {
     let userController;
     let mockUserService;
+    let mockLoggerService;
     let req;
     let res;
     beforeEach(() => {
@@ -31,6 +32,13 @@ describe("UserController", () => {
         mockUserService.getUser = jest.fn(() => {
             return Promise.resolve(user_mockData_1.mockUser);
         });
+        mockLoggerService = jest.fn();
+        mockLoggerService.info = jest.fn(() => {
+            return Promise.resolve();
+        });
+        mockLoggerService.error = jest.fn(() => {
+            return Promise.resolve();
+        });
         req = jest.fn();
         req.params = jest.fn(() => {
             return Promise.resolve();
@@ -42,7 +50,7 @@ describe("UserController", () => {
         res.send = jest.fn(() => {
             return Promise.resolve();
         });
-        userController = new user_controller_1.default(mockUserService);
+        userController = new user_controller_1.default(mockUserService, mockLoggerService);
     });
     describe("getUsers", () => {
         it("returns successful list of users", () => __awaiter(void 0, void 0, void 0, function* () {

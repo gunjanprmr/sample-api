@@ -4,6 +4,7 @@ import {
     Request as ExpressRequest,
     Response as ExpressResponse,
 } from 'express';
+import LoggerService from "../services/logger.service";
 
 /**
  * Retrieve user related information.
@@ -13,6 +14,7 @@ export default class UserController {
 
     constructor(
         @inject("UserService") private UserService: UserService,
+        @inject("LoggerService") private loggerService: LoggerService,
     ) { }
 
     /**
@@ -23,10 +25,12 @@ export default class UserController {
      */
     public async getUsers(req: ExpressRequest, res: ExpressResponse): Promise<any> {
         try {
-            const returnThis = await this.UserService.getUsers();
-            res.send(returnThis);
-            return returnThis; 
+            const response = await this.UserService.getUsers();
+            this.loggerService.info(this.constructor.name, response);
+            res.send(response);
+            return response; 
         } catch (error) {
+            this.loggerService.error(this.constructor.name, error);
             throw error;
         }
     }
@@ -41,10 +45,12 @@ export default class UserController {
     public async getUser(req: ExpressRequest, res: ExpressResponse): Promise<any> {
         try {
             const userId = +req.params.userId;
-            const returnThis = await this.UserService.getUser(userId);
-            res.send(returnThis);
-            return returnThis;
+            const response = await this.UserService.getUser(userId);
+            this.loggerService.info(this.constructor.name, response);
+            res.send(response);
+            return response;
         } catch (error) {
+            this.loggerService.error(this.constructor.name, error);
             throw error;
         }
         
