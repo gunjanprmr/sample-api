@@ -34,17 +34,18 @@ let HealthService = class HealthService {
      */
     healthCheck() {
         return __awaiter(this, void 0, void 0, function* () {
+            const logger = yield this.loggerService.logger(this.constructor.name);
             try {
                 const response = {
                     dateTime: exports.dateTime,
                     description: "Health Check",
                     status: "Connected"
                 };
-                this.loggerService.info(this.constructor.name, response);
+                logger.info(response);
                 return response;
             }
             catch (error) {
-                this.loggerService.error(this.constructor.name, error);
+                logger.error(error);
                 throw error;
             }
         });

@@ -18,16 +18,17 @@ export default class HealthService {
      * @returns health check
      */
     public async healthCheck(): Promise<HealthModel> {
+        const logger = await this.loggerService.logger(this.constructor.name);
         try {
             const response: HealthModel = {
                 dateTime: dateTime,
                 description: "Health Check",
                 status: "Connected"
             };
-            this.loggerService.info(this.constructor.name, response);
+            logger.info(response);
             return response;
         } catch (error) {
-            this.loggerService.error(this.constructor.name, error);
+            logger.error(error);
             throw error;
         }
     }

@@ -21,7 +21,7 @@ describe("HealthController", () => {
             return Promise.resolve();
         });
 
-         // Mock Logger Service
+        // Mock Logger Service
         mockLoggerService = jest.fn();
         mockLoggerService.logger = jest.fn();
         mockDebug = {

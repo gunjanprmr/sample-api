@@ -33,14 +33,18 @@ const health_service_1 = __importStar(require("../health.service"));
 describe("HealthService", () => {
     let healthService;
     let mockLoggerService;
+    let mockInfo;
+    let mockError;
     beforeEach(() => __awaiter(void 0, void 0, void 0, function* () {
+        // Mock Logger Service
         mockLoggerService = jest.fn();
-        mockLoggerService.info = jest.fn(() => {
-            return Promise.resolve();
-        });
-        mockLoggerService.error = jest.fn(() => {
-            return Promise.resolve();
-        });
+        mockLoggerService.logger = jest.fn();
+        mockInfo = {
+            info: jest.fn(),
+        };
+        mockError = {
+            error: jest.fn(),
+        };
         healthService = new health_service_1.default(mockLoggerService);
     }));
     it("Success", () => __awaiter(void 0, void 0, void 0, function* () {
@@ -49,11 +53,13 @@ describe("HealthService", () => {
             description: "Health Check",
             status: "Connected",
         };
+        mockLoggerService.logger.mockReturnValueOnce(mockInfo);
         const output = yield healthService.healthCheck();
         expect(output).toEqual(mockHealthCheckModel);
     }));
     it("handles error", () => __awaiter(void 0, void 0, void 0, function* () {
         const fakeError = "Can't get health status";
+        mockLoggerService.logger.mockReturnValueOnce(mockError);
         healthService.healthCheck = jest.fn(() => {
             return Promise.reject(fakeError);
         });
