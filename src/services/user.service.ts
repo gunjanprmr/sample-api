@@ -19,12 +19,13 @@ export default class UserService {
      * @returns all users 
      */
     public async getUsers(): Promise<UserModel[]> {
+        const logger = await this.loggerService.logger(this.constructor.name);
         try {   
             const response = await this.userRepository.getUsers();
-            this.loggerService.info(this.constructor.name, response);
+            logger.info(response);
             return response;
         } catch (error) {
-            this.loggerService.error(this.constructor.name, error);
+            logger.error(error);
             throw error;
         }
     }
@@ -34,12 +35,13 @@ export default class UserService {
      * @param userId 
      */
     public async getUser(userId: number): Promise<UserModel> {
+        const logger = await this.loggerService.logger(this.constructor.name);
         try {
             const response = await this.userRepository.getUser(userId);
-            this.loggerService.info(this.constructor.name, response);
+            logger.info(response);
             return response;
         } catch (error) {
-            this.loggerService.error(this.constructor.name, error);
+            logger.error(error);
             throw error;
         }
     }

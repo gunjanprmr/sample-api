@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640732990055" clover="3.2.0">
-  <project timestamp="1640732990055" name="All files">
-    <metrics statements="99" coveredstatements="81" conditionals="1" coveredconditionals="0" methods="21" coveredmethods="17" elements="121" coveredelements="98" complexity="0" loc="99" ncloc="99" packages="4" files="8" classes="8"/>
+<coverage generated="1640733279356" clover="3.2.0">
+  <project timestamp="1640733279356" name="All files">
+    <metrics statements="101" coveredstatements="83" conditionals="1" coveredconditionals="0" methods="21" coveredmethods="17" elements="123" coveredelements="100" complexity="0" loc="101" ncloc="101" packages="4" files="8" classes="8"/>
     <package name="controllers">
       <metrics statements="33" coveredstatements="33" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
       <file name="health.controller.ts" path="/Users/GParmar/MyPlayground/sample-api/src/controllers/health.controller.ts">
@@ -61,7 +61,7 @@
       </file>
     </package>
     <package name="services">
-      <metrics statements="48" coveredstatements="31" conditionals="1" coveredconditionals="0" methods="11" coveredmethods="7"/>
+      <metrics statements="50" coveredstatements="33" conditionals="1" coveredconditionals="0" methods="11" coveredmethods="7"/>
       <file name="health.service.ts" path="/Users/GParmar/MyPlayground/sample-api/src/services/health.service.ts">
         <metrics statements="11" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
@@ -101,7 +101,7 @@
         <line num="87" count="0" type="stmt"/>
       </file>
       <file name="user.service.ts" path="/Users/GParmar/MyPlayground/sample-api/src/services/user.service.ts">
-        <metrics statements="16" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="18" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="13" count="5" type="stmt"/>
@@ -110,14 +110,16 @@
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
     </package>
     <package name="utils">

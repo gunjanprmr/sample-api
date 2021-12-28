@@ -6,11 +6,14 @@ describe("UserService", () => {
     let userService: UserService;
     let mockUserRepository: any;
     let mockLoggerService: any;
+    let mockInfo: any;
+    let mockError: any;
 
     beforeEach(() => {
         jest.resetModules();
         jest.resetAllMocks();
 
+        // Mock User Repository
         mockUserRepository = jest.fn();
         mockUserRepository.getUsers = jest.fn(() => {
             return Promise.resolve(mockUsers);
@@ -19,19 +22,22 @@ describe("UserService", () => {
             return Promise.resolve(mockUser);
         });
 
+        // Mock Logger Service
         mockLoggerService = jest.fn();
-        mockLoggerService.info = jest.fn(() => {
-            return Promise.resolve();
-        });
-        mockLoggerService.error = jest.fn(() => {
-            return Promise.resolve();
-        });
+        mockLoggerService.logger = jest.fn();
+        mockInfo = {
+            info: jest.fn(),
+        };
+        mockError = {
+            error: jest.fn(),
+        };
 
         userService = new UserService(mockUserRepository, mockLoggerService);
     });
 
     describe("getUsers", () => {
         it("returns successful list of users", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockInfo);
             const output = await userService.getUsers();
             expect(output).toEqual(mockUsers);
             expect(mockUserRepository.getUsers).toHaveBeenCalled();
@@ -40,6 +46,7 @@ describe("UserService", () => {
 
         it("handles error", async () => {
             const fakeError = "Can't get users";
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             mockUserRepository.getUsers = jest.fn(() => {
                 return Promise.reject(fakeError);
             });
@@ -56,6 +63,7 @@ describe("UserService", () => {
     describe("getUser", () => {
         const mockUserId = 1;
         it("Success", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockInfo);
             const output = await userService.getUser(mockUserId);
             expect(output).toEqual(mockUser);
             expect(mockUserRepository.getUser).toHaveBeenCalled();
@@ -64,6 +72,7 @@ describe("UserService", () => {
 
         it("handles error", async () => {
             const fakeError = "Can't get user";
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             mockUserRepository.getUser = jest.fn(() => {
                 return Promise.reject(fakeError);
             });

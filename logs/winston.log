@@ -34,3 +34,4 @@
 [2021-12-28T23:05:13.452Z] UserService [32minfo[39m: {"UserId":1,"FirstName":"Superadmin","LastName":"User","Email":"superadmin@carvana.com","Password":"$2a$10$yn1JNK61riU28gjbfAwfSeETeQaazJ3WXF99dNLdK4xzbnJchagQ.","RowLoadedDateTime":"2019-07-30T18:59:43.783Z","RowUpdatedDateTime":"2021-12-28T19:08:38.871Z","RowDeletedDateTime":null,"PhoneNumber":"9122377794","UserTypeId":1,"LastLoginDateTime":"2021-12-28T19:08:38.871Z"}
 [2021-12-28T23:09:15.215Z] HealthService [32minfo[39m: {"dateTime":"2021-12-28T23:09:10.691Z","description":"Health Check","status":"Connected"}
 [2021-12-28T23:09:48.090Z] HealthService [32minfo[39m: {"dateTime":"2021-12-28T23:09:47.923Z","description":"Health Check","status":"Connected"}
+[2021-12-28T23:14:37.899Z] HealthService [32minfo[39m: {"dateTime":"2021-12-28T23:14:37.750Z","description":"Health Check","status":"Connected"}

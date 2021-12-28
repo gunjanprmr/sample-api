@@ -33,13 +33,14 @@ let UserService = class UserService {
      */
     getUsers() {
         return __awaiter(this, void 0, void 0, function* () {
+            const logger = yield this.loggerService.logger(this.constructor.name);
             try {
                 const response = yield this.userRepository.getUsers();
-                this.loggerService.info(this.constructor.name, response);
+                logger.info(response);
                 return response;
             }
             catch (error) {
-                this.loggerService.error(this.constructor.name, error);
+                logger.error(error);
                 throw error;
             }
         });
@@ -50,13 +51,14 @@ let UserService = class UserService {
      */
     getUser(userId) {
         return __awaiter(this, void 0, void 0, function* () {
+            const logger = yield this.loggerService.logger(this.constructor.name);
             try {
                 const response = yield this.userRepository.getUser(userId);
-                this.loggerService.info(this.constructor.name, response);
+                logger.info(response);
                 return response;
             }
             catch (error) {
-                this.loggerService.error(this.constructor.name, error);
+                logger.error(error);
                 throw error;
             }
         });
