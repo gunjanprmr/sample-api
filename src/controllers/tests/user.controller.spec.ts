@@ -6,6 +6,8 @@ describe("UserController", () => {
     let userController: UserController;
     let mockUserService: any;
     let mockLoggerService: any;
+    let mockDebug: any;
+    let mockError: any;
     let req: any;
     let res: any;
 
@@ -14,6 +16,7 @@ describe("UserController", () => {
         jest.resetAllMocks();
         jest.doMock('../../services/user.service.ts', () => mockUserService);
 
+        // Mock User Service
         mockUserService = jest.fn();
         mockUserService.getUsers = jest.fn(() => {
             return Promise.resolve(mockUsers);
@@ -22,13 +25,15 @@ describe("UserController", () => {
             return Promise.resolve(mockUser);
         });
 
+        // Mock Logger Service
         mockLoggerService = jest.fn();
-        mockLoggerService.info = jest.fn(() => {
-            return Promise.resolve();
-        });
-        mockLoggerService.error = jest.fn(() => {
-            return Promise.resolve();
-        });
+        mockLoggerService.logger = jest.fn();
+        mockDebug = {
+            debug: jest.fn(),
+        };
+        mockError = {
+            error: jest.fn(),
+        };
 
         req = jest.fn();
         req.params = jest.fn(() => {
@@ -48,6 +53,9 @@ describe("UserController", () => {
 
     describe("getUsers", () => {
         it("returns successful list of users", async () => {
+            
+            mockLoggerService.logger.mockReturnValueOnce(mockDebug);
+
             const output = await userController.getUsers(req, res);
             expect(output).toEqual(mockUsers);
             expect(res.send).toHaveBeenCalled();
@@ -58,6 +66,7 @@ describe("UserController", () => {
         });
 
         it("handles error", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             const fakeError = "Can't get users";
             mockUserService.getUsers = jest.fn(() => {
                 return Promise.reject(fakeError);
@@ -74,6 +83,7 @@ describe("UserController", () => {
 
     describe("getUser", () => {
         it("Success", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockDebug);
             const output = await userController.getUser(req, res);
             expect(output).toEqual(mockUser);
             expect(res.send).toHaveBeenCalled();
@@ -83,6 +93,7 @@ describe("UserController", () => {
         });
 
         it("handles error", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             const fakeError = "Can't get user";
             mockUserService.getUser = jest.fn(() => {
                 return Promise.reject(fakeError);

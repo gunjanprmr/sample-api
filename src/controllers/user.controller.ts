@@ -24,13 +24,14 @@ export default class UserController {
      * @returns all users
      */
     public async getUsers(req: ExpressRequest, res: ExpressResponse): Promise<any> {
+        const logger = await this.loggerService.logger(this.constructor.name);
         try {
             const response = await this.userService.getUsers();
-            this.loggerService.info(this.constructor.name, response);
+            logger.debug(response);
             res.send(response);
             return response; 
         } catch (error) {
-            this.loggerService.error(this.constructor.name, error);
+            logger.error(error);
             throw error;
         }
     }
@@ -43,14 +44,15 @@ export default class UserController {
      * @returns 
      */
     public async getUser(req: ExpressRequest, res: ExpressResponse): Promise<any> {
+        const logger = await this.loggerService.logger(this.constructor.name);
         try {
             const userId = +req.params.userId;
             const response = await this.userService.getUser(userId);
-            this.loggerService.info(this.constructor.name, response);
+            logger.debug(response);
             res.send(response);
             return response;
         } catch (error) {
-            this.loggerService.error(this.constructor.name, error);
+            logger.error(error);
             throw error;
         }
         

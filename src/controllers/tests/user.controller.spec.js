@@ -19,12 +19,15 @@ describe("UserController", () => {
     let userController;
     let mockUserService;
     let mockLoggerService;
+    let mockDebug;
+    let mockError;
     let req;
     let res;
     beforeEach(() => {
         jest.resetModules();
         jest.resetAllMocks();
         jest.doMock('../../services/user.service.ts', () => mockUserService);
+        // Mock User Service
         mockUserService = jest.fn();
         mockUserService.getUsers = jest.fn(() => {
             return Promise.resolve(user_mockData_1.mockUsers);
@@ -32,13 +35,15 @@ describe("UserController", () => {
         mockUserService.getUser = jest.fn(() => {
             return Promise.resolve(user_mockData_1.mockUser);
         });
+        // Mock Logger Service
         mockLoggerService = jest.fn();
-        mockLoggerService.info = jest.fn(() => {
-            return Promise.resolve();
-        });
-        mockLoggerService.error = jest.fn(() => {
-            return Promise.resolve();
-        });
+        mockLoggerService.logger = jest.fn();
+        mockDebug = {
+            debug: jest.fn(),
+        };
+        mockError = {
+            error: jest.fn(),
+        };
         req = jest.fn();
         req.params = jest.fn(() => {
             return Promise.resolve();
@@ -54,6 +59,7 @@ describe("UserController", () => {
     });
     describe("getUsers", () => {
         it("returns successful list of users", () => __awaiter(void 0, void 0, void 0, function* () {
+            mockLoggerService.logger.mockReturnValueOnce(mockDebug);
             const output = yield userController.getUsers(req, res);
             expect(output).toEqual(user_mockData_1.mockUsers);
             expect(res.send).toHaveBeenCalled();
@@ -63,6 +69,7 @@ describe("UserController", () => {
             expect(mockUserService.getUsers).toBeCalledTimes(1);
         }));
         it("handles error", () => __awaiter(void 0, void 0, void 0, function* () {
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             const fakeError = "Can't get users";
             mockUserService.getUsers = jest.fn(() => {
                 return Promise.reject(fakeError);
@@ -78,6 +85,7 @@ describe("UserController", () => {
     });
     describe("getUser", () => {
         it("Success", () => __awaiter(void 0, void 0, void 0, function* () {
+            mockLoggerService.logger.mockReturnValueOnce(mockDebug);
             const output = yield userController.getUser(req, res);
             expect(output).toEqual(user_mockData_1.mockUser);
             expect(res.send).toHaveBeenCalled();
@@ -86,6 +94,7 @@ describe("UserController", () => {
             expect(mockUserService.getUser).toBeCalledTimes(1);
         }));
         it("handles error", () => __awaiter(void 0, void 0, void 0, function* () {
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             const fakeError = "Can't get user";
             mockUserService.getUser = jest.fn(() => {
                 return Promise.reject(fakeError);
