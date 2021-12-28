@@ -23,8 +23,8 @@ const inversify_1 = require("inversify");
  * To check health of the application
  */
 let HealthController = class HealthController {
-    constructor(HealthService, loggerService) {
-        this.HealthService = HealthService;
+    constructor(healthService, loggerService) {
+        this.healthService = healthService;
         this.loggerService = loggerService;
     }
     /**
@@ -36,7 +36,7 @@ let HealthController = class HealthController {
     healthCheck(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield this.HealthService.healthCheck();
+                const response = yield this.healthService.healthCheck();
                 this.loggerService.info(this.constructor.name, response);
                 res.send(response);
                 return response;

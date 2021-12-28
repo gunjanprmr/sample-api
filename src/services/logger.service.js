@@ -36,7 +36,6 @@ let LoggerService = class LoggerService {
                 transports: [
                     new winston_1.transports.File({
                         filename: './logs/winston.log',
-                        // level: 'info' || 'error',
                     }),
                 ],
                 exitOnError: false,

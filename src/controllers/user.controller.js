@@ -23,8 +23,8 @@ const inversify_1 = require("inversify");
  * Retrieve user related information.
  */
 let UserController = class UserController {
-    constructor(UserService, loggerService) {
-        this.UserService = UserService;
+    constructor(userService, loggerService) {
+        this.userService = userService;
         this.loggerService = loggerService;
     }
     /**
@@ -36,7 +36,7 @@ let UserController = class UserController {
     getUsers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield this.UserService.getUsers();
+                const response = yield this.userService.getUsers();
                 this.loggerService.info(this.constructor.name, response);
                 res.send(response);
                 return response;
@@ -58,7 +58,7 @@ let UserController = class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const userId = +req.params.userId;
-                const response = yield this.UserService.getUser(userId);
+                const response = yield this.userService.getUser(userId);
                 this.loggerService.info(this.constructor.name, response);
                 res.send(response);
                 return response;
