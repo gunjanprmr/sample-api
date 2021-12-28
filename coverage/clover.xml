@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640733279356" clover="3.2.0">
-  <project timestamp="1640733279356" name="All files">
-    <metrics statements="101" coveredstatements="83" conditionals="1" coveredconditionals="0" methods="21" coveredmethods="17" elements="123" coveredelements="100" complexity="0" loc="101" ncloc="101" packages="4" files="8" classes="8"/>
+<coverage generated="1640733348489" clover="3.2.0">
+  <project timestamp="1640733348489" name="All files">
+    <metrics statements="89" coveredstatements="83" conditionals="1" coveredconditionals="0" methods="17" coveredmethods="17" elements="107" coveredelements="100" complexity="0" loc="89" ncloc="89" packages="4" files="8" classes="8"/>
     <package name="controllers">
       <metrics statements="33" coveredstatements="33" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
       <file name="health.controller.ts" path="/Users/GParmar/MyPlayground/sample-api/src/controllers/health.controller.ts">
@@ -61,7 +61,7 @@
       </file>
     </package>
     <package name="services">
-      <metrics statements="50" coveredstatements="33" conditionals="1" coveredconditionals="0" methods="11" coveredmethods="7"/>
+      <metrics statements="38" coveredstatements="33" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="7"/>
       <file name="health.service.ts" path="/Users/GParmar/MyPlayground/sample-api/src/services/health.service.ts">
         <metrics statements="11" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
@@ -77,7 +77,7 @@
         <line num="32" count="0" type="stmt"/>
       </file>
       <file name="logger.service.ts" path="/Users/GParmar/MyPlayground/sample-api/src/services/logger.service.ts">
-        <metrics statements="21" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -87,18 +87,6 @@
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
       </file>
       <file name="user.service.ts" path="/Users/GParmar/MyPlayground/sample-api/src/services/user.service.ts">
         <metrics statements="18" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>

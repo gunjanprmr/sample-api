@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.47% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/23</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.09% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/21</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -193,10 +193,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,10 +203,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,10 +213,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,10 +223,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { injectable } from "inversify";
@@ -275,61 +275,61 @@ export default class LoggerService {
         });
     }
 &nbsp;
-    /**
-     * 
-     * @param filename: Caller 
-     * @param response: returns INFO level
-     * @returns 
-     */
-    public async <span class="fstat-no" title="function not covered" >info(</span>filename: string, response: any): Promise&lt;Logger&gt; {
-<span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            return (await this.logger(filename)).info(response);</span>
-        } catch (error) {
-<span class="cstat-no" title="statement not covered" >            throw error;</span>
-        }
-    }
+//     /**
+//      * 
+//      * @param filename: Caller 
+//      * @param response: returns INFO level
+//      * @returns 
+//      */
+//     public async info(filename: string, response: any): Promise&lt;Logger&gt; {
+//         try {
+//             return (await this.logger(filename)).info(response);
+//         } catch (error) {
+//             throw error;
+//         }
+//     }
 &nbsp;
-    /**
-     * 
-     * @param filename: Caller 
-     * @param response: returns ERROR level
-     * @returns 
-     */
-    public async <span class="fstat-no" title="function not covered" >error(</span>filename: string, response: any): Promise&lt;Logger&gt; {
-<span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            return (await this.logger(filename)).error(response);</span>
-        } catch (error) {
-<span class="cstat-no" title="statement not covered" >            throw error;</span>
-        }
-    }
+//     /**
+//      * 
+//      * @param filename: Caller 
+//      * @param response: returns ERROR level
+//      * @returns 
+//      */
+//     public async error(filename: string, response: any): Promise&lt;Logger&gt; {
+//         try {
+//             return (await this.logger(filename)).error(response);
+//         } catch (error) {
+//             throw error;
+//         }
+//     }
 &nbsp;
-    /**
- * 
- * @param filename: Caller 
- * @param response: returns WARN level
- * @returns 
- */
-    public async <span class="fstat-no" title="function not covered" >warn(</span>filename: string, response: any): Promise&lt;Logger&gt; {
-<span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            return (await this.logger(filename)).warn(response);</span>
-        } catch (error) {
-<span class="cstat-no" title="statement not covered" >            throw error;</span>
-        }
-    }
+//     /**
+//  * 
+//  * @param filename: Caller 
+//  * @param response: returns WARN level
+//  * @returns 
+//  */
+//     public async warn(filename: string, response: any): Promise&lt;Logger&gt; {
+//         try {
+//             return (await this.logger(filename)).warn(response);
+//         } catch (error) {
+//             throw error;
+//         }
+//     }
 &nbsp;
-    /**
-* 
-* @param filename: Caller 
-* @param response: returns DEBUG level
-* @returns 
-*/
-    public async <span class="fstat-no" title="function not covered" >debug(</span>filename: string, response: any): Promise&lt;Logger&gt; {
-<span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            return (await this.logger(filename)).debug(response);</span>
-        } catch (error) {
-<span class="cstat-no" title="statement not covered" >            throw error;</span>
-        }
-    }
+//     /**
+// * 
+// * @param filename: Caller 
+// * @param response: returns DEBUG level
+// * @returns 
+// */
+//     public async debug(filename: string, response: any): Promise&lt;Logger&gt; {
+//         try {
+//             return (await this.logger(filename)).debug(response);
+//         } catch (error) {
+//             throw error;
+//         }
+//     }
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -337,7 +337,7 @@ export default class LoggerService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Tue Dec 28 2021 18:14:39 GMT-0500 (Eastern Standard Time)
+                at Tue Dec 28 2021 18:15:48 GMT-0500 (Eastern Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
