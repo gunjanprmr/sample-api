@@ -35,14 +35,15 @@ let HealthController = class HealthController {
      */
     healthCheck(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            const logger = yield this.loggerService.logger(this.constructor.name);
             try {
                 const response = yield this.healthService.healthCheck();
-                this.loggerService.info(this.constructor.name, response);
+                logger.debug(response);
                 res.send(response);
                 return response;
             }
             catch (error) {
-                this.loggerService.error(this.constructor.name, error);
+                logger.error(error);
                 throw error;
             }
         });

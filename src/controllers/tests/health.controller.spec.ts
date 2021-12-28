@@ -6,6 +6,8 @@ describe("HealthController", () => {
     let healthController: HealthController;
     let mockHealthService: any;
     let mockLoggerService: any;
+    let mockDebug: any;
+    let mockError: any;
     let req: any;
     let res: any;
     
@@ -13,20 +15,23 @@ describe("HealthController", () => {
         jest.resetModules();
         jest.resetAllMocks();
 
+        // Mock Health Service
         mockHealthService = jest.fn();
         mockHealthService.healthCheck = jest.fn(() => {
             return Promise.resolve();
         });
-        jest.doMock('../../services/health.service.ts', () => mockHealthService);
 
+         // Mock Logger Service
         mockLoggerService = jest.fn();
-        mockLoggerService.info = jest.fn(() => {
-            return Promise.resolve();
-        });
-        mockLoggerService.error = jest.fn(() => {
-            return Promise.resolve();
-        });
+        mockLoggerService.logger = jest.fn();
+        mockDebug = {
+            debug: jest.fn(),
+        };
+        mockError = {
+            error: jest.fn(),
+        };
 
+        // Mock express Request and Response
         req = jest.fn();
         res = jest.fn();
         res.send = jest.fn(() => {
@@ -38,6 +43,9 @@ describe("HealthController", () => {
 
     describe("healthCheck", () => {
         it("returns successful response", async () => {
+
+            mockLoggerService.logger.mockReturnValueOnce(mockDebug);
+            
             await healthController.healthCheck(req, res);
             expect(res.send).toHaveBeenCalled();
             expect(res.send).toBeCalledTimes(1);
@@ -47,7 +55,9 @@ describe("HealthController", () => {
         });
 
         it("handles error", async () => {
+            
             const fakeError = "Can't get health status";
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
             mockHealthService.healthCheck = jest.fn(() => {
                 return Promise.reject(fakeError);
             });

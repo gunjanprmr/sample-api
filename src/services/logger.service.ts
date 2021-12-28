@@ -8,7 +8,7 @@ export default class LoggerService {
      * 
      * @returns Log object for logging
      */
-    protected async logger(filename: string): Promise<Logger> {
+    public async logger(filename: string): Promise<Logger> {
         if (!fs.existsSync(logDir)) {
             fs.mkdirSync(logDir);
         }
