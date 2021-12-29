@@ -37,16 +37,8 @@ describe("HealthService", () => {
     });
 
     it("handles error", async () => {
-        const fakeError = "Can't get health status";
-        mockInfo = {
-            info: Promise.reject(fakeError),
-        };
-
-        mockError = {
-            error: Promise.reject("abc"),
-        };
-        mockLoggerService.logger.mockReturnValueOnce(mockInfo);
-        mockLoggerService.logger.mockReturnValueOnce(mockError);
+        const fakeError = "Cannot read property 'error'";
+        
 
         try {
             await healthService.healthCheck();
@@ -54,7 +46,7 @@ describe("HealthService", () => {
         } catch (error) {
             const actualError = error as Error;
             const errorMessage = actualError.message;
-            expect(errorMessage).toContain("logger.error is not a function");
+            expect(errorMessage).toContain(fakeError);
         }
     })
 });

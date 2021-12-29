@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
     "compile": "tsc -p .",
-    "test": "npm run compile && jest --coverage --color",
+    "test": "npm run compile && jest --coverage --color --detectOpenHandles",
     "start": "npm run compile && npm run dev",
     "apiTest": "npm run compile && jest './src/apiTests'"
   },
