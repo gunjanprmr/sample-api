@@ -14,10 +14,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
 const winston_1 = require("winston");
-const fs = require('fs');
+const fs_1 = __importDefault(require("fs"));
 const logDir = 'logs';
 let LoggerService = class LoggerService {
     /**
@@ -26,13 +29,15 @@ let LoggerService = class LoggerService {
      */
     logger(filename) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (!fs.existsSync(logDir)) {
-                fs.mkdirSync(logDir);
+            if (!fs_1.default.existsSync(logDir)) {
+                fs_1.default.mkdirSync(logDir);
             }
             return (0, winston_1.createLogger)({
-                format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.timestamp(), winston_1.format.printf(({ timestamp, level, message, service }) => {
-                    return `[${timestamp}] ${service} ${level}: ${JSON.stringify(message)}`;
-                })),
+                format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.timestamp(), 
+                // format.printf(({ timestamp, level, message, service }) => {
+                //     return `[${timestamp}] ${service} ${level}: ${JSON.stringify(message)}`;
+                // }),
+                winston_1.format.printf((info) => `${info.timestamp} ${info.service} ${info.level}: ${JSON.stringify(info.message)}`)),
                 transports: [
                     new winston_1.transports.File({
                         filename: './logs/winston.log',

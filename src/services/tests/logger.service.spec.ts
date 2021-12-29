@@ -1,14 +1,18 @@
 import 'reflect-metadata';
 import LoggerService from '../logger.service';
-
+import fs from 'fs';
 describe("LoggerService", () => {
 
     let loggerService: LoggerService;
     const mockFileName: string = "mockFileName";
+    let fsSpy: any;
 
     beforeEach(() => {
         jest.resetModules();
         jest.resetAllMocks();
+
+        fsSpy = jest.spyOn(fs, 'existsSync').mockImplementation();
+        fsSpy = jest.spyOn(fs, 'mkdirSync').mockImplementation();
   
         loggerService = new LoggerService();
     });
@@ -19,17 +23,11 @@ describe("LoggerService", () => {
     });
 
     describe("logger", () => {
-        it("Success - When log folder exists", async () => {
-             const output = await loggerService.logger(mockFileName);
-            expect(output).toBeDefined();
-            expect(loggerService).toBeInstanceOf(LoggerService);
-
-        });
-
-        it("Success - When log folder does not exists", async () => {
+        it("Success", async () => {
             const output = await loggerService.logger(mockFileName);
             expect(output).toBeDefined();
             expect(loggerService).toBeInstanceOf(LoggerService);
+
         });
 
         it("Failure", async () => {

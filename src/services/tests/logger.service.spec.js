@@ -14,17 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 const logger_service_1 = __importDefault(require("../logger.service"));
-const fs = require('fs');
+const fs_1 = __importDefault(require("fs"));
 describe("LoggerService", () => {
     let loggerService;
     const mockFileName = "mockFileName";
-    // let fsObject: typeof fs;
-    let mockExistsSync;
-    let mockMkdirSync;
+    let fsSpy;
     beforeEach(() => {
         jest.resetModules();
         jest.resetAllMocks();
-        // mockFs = jest.fn();
+        fsSpy = jest.spyOn(fs_1.default, 'existsSync').mockImplementation();
+        fsSpy = jest.spyOn(fs_1.default, 'mkdirSync').mockImplementation();
         loggerService = new logger_service_1.default();
     });
     afterEach(() => {
@@ -32,21 +31,7 @@ describe("LoggerService", () => {
         jest.resetAllMocks();
     });
     describe("logger", () => {
-        it("Success - When log folder exists", () => __awaiter(void 0, void 0, void 0, function* () {
-            // mockExistsSync = {
-            //     existsSync: jest.fn(),
-            // };
-            if (fs.existsSync('logs')) {
-                const output = yield loggerService.logger(mockFileName);
-                expect(output).toBeDefined();
-                expect(loggerService).toBeInstanceOf(logger_service_1.default);
-            }
-        }));
-        it("Success - When log folder does not exists", () => __awaiter(void 0, void 0, void 0, function* () {
-            const mockLogs = 'unitTestLogs';
-            if (!fs.existsSync(mockLogs)) {
-                fs.mkdirSync(mockLogs);
-            }
+        it("Success", () => __awaiter(void 0, void 0, void 0, function* () {
             const output = yield loggerService.logger(mockFileName);
             expect(output).toBeDefined();
             expect(loggerService).toBeInstanceOf(logger_service_1.default);

@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { createLogger, format, Logger, transports } from "winston";
-const fs = require('fs');
+import fs from 'fs';
 const logDir = 'logs';
 @injectable()
 export default class LoggerService {
@@ -12,13 +12,12 @@ export default class LoggerService {
         if (!fs.existsSync(logDir)) {
             fs.mkdirSync(logDir);
         }
+
         return createLogger({
             format: format.combine(
                 format.colorize(),
                 format.timestamp(),
-                format.printf(({ timestamp, level, message, service }) => {
-                    return `[${timestamp}] ${service} ${level}: ${JSON.stringify(message)}`;
-                }),
+                format.printf((info) => `${info.timestamp} ${info.service} ${info.level}: ${JSON.stringify(info.message)}`),
             ),
             transports: [
                 new transports.File({
