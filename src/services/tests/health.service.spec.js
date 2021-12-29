@@ -61,16 +61,25 @@ describe("HealthService", () => {
     }));
     it("handles error", () => __awaiter(void 0, void 0, void 0, function* () {
         const fakeError = "Can't get health status";
+        mockInfo = {
+            info: Promise.reject(fakeError),
+        };
+        mockError = {
+            error: Promise.reject("abc"),
+        };
+        mockLoggerService.logger.mockReturnValueOnce(mockInfo);
         mockLoggerService.logger.mockReturnValueOnce(mockError);
-        healthService.healthCheck = jest.fn(() => {
-            return Promise.reject(fakeError);
-        });
+        // healthService.healthCheck = jest.fn(() => {
+        //     return Promise.reject(fakeError);
+        // });
         try {
             yield healthService.healthCheck();
             fail("shouldn't be here");
         }
         catch (error) {
-            expect(error).toEqual(fakeError);
+            const actualError = error;
+            const errorMessage = actualError.message;
+            expect(errorMessage).toContain("logger.error is not a function");
         }
     }));
 });
