@@ -47,9 +47,6 @@ describe("HealthService", () => {
         };
         mockLoggerService.logger.mockReturnValueOnce(mockInfo);
         mockLoggerService.logger.mockReturnValueOnce(mockError);
-        // healthService.healthCheck = jest.fn(() => {
-        //     return Promise.reject(fakeError);
-        // });
 
         try {
             await healthService.healthCheck();
