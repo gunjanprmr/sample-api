@@ -49,3 +49,13 @@
 2021-12-29T15:59:16.633Z UserService [32minfo[39m: {"UserId":1,"FirstName":"Superadmin","LastName":"User","Email":"superadmin@carvana.com","Password":"$2a$10$yn1JNK61riU28gjbfAwfSeETeQaazJ3WXF99dNLdK4xzbnJchagQ.","RowLoadedDateTime":"2019-07-30T18:59:43.783Z","RowUpdatedDateTime":"2021-12-28T19:08:38.871Z","RowDeletedDateTime":null,"PhoneNumber":"9122377794","UserTypeId":1,"LastLoginDateTime":"2021-12-28T19:08:38.871Z"}
 2021-12-29T15:59:29.695Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T15:58:56.115Z","description":"Health Check","status":"Connected"}
 2021-12-29T16:03:39.529Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T15:58:56.115Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:05:02.704Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:05:00.430Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:08:16.440Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:08:16.287Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:08:32.790Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:08:32.613Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:18:02.898Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:18:02.726Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:24:11.655Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:24:11.511Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:27:48.439Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:27:48.299Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:28:57.749Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:28:57.586Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:35:03.434Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:35:03.277Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:35:36.400Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:35:36.240Z","description":"Health Check","status":"Connected"}
+2021-12-29T16:41:50.347Z HealthService [32minfo[39m: {"dateTime":"2021-12-29T16:41:50.195Z","description":"Health Check","status":"Connected"}

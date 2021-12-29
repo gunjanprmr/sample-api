@@ -33,11 +33,7 @@ let LoggerService = class LoggerService {
                 fs_1.default.mkdirSync(logDir);
             }
             return (0, winston_1.createLogger)({
-                format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.timestamp(), 
-                // format.printf(({ timestamp, level, message, service }) => {
-                //     return `[${timestamp}] ${service} ${level}: ${JSON.stringify(message)}`;
-                // }),
-                winston_1.format.printf((info) => `${info.timestamp} ${info.service} ${info.level}: ${JSON.stringify(info.message)}`)),
+                format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.timestamp(), winston_1.format.printf((info) => `${info.timestamp} ${info.service} ${info.level}: ${JSON.stringify(info.message)}`)),
                 transports: [
                     new winston_1.transports.File({
                         filename: './logs/winston.log',

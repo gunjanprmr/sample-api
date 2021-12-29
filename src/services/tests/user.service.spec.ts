@@ -52,7 +52,7 @@ describe("UserService", () => {
             });
 
             try {
-                await mockUserRepository.getUsers();
+                await userService.getUsers();
                 fail("shouldn't be here")
             } catch (error) {
                 expect(error).toEqual(fakeError);

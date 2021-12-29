@@ -58,7 +58,7 @@ describe("UserService", () => {
                 return Promise.reject(fakeError);
             });
             try {
-                yield mockUserRepository.getUsers();
+                yield userService.getUsers();
                 fail("shouldn't be here");
             }
             catch (error) {
