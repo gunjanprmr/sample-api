@@ -22,6 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.app = void 0;
 /**
  * Required External Modules
  */
@@ -33,27 +34,14 @@ const helmet_1 = __importDefault(require("helmet"));
 const routes_1 = __importDefault(require("./routes/routes"));
 const compression_1 = __importDefault(require("compression"));
 dotenv.config();
-/**
- * App Variables
- */
-if (!process.env.PORT) {
-    process.exit(1);
-}
-const PORT = parseInt(process.env.PORT, 10);
-const app = (0, express_1.default)();
+exports.app = (0, express_1.default)();
 /**
  *  App Configuration
  */
-app.use((0, helmet_1.default)());
-app.use((0, cors_1.default)());
-app.use(express_1.default.json());
-app.disable('x-powered-by'); // Hide information
-app.use((0, compression_1.default)());
-(0, routes_1.default)(app);
-/**
- * Server Activation
- */
-const server = app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-});
-module.exports = server;
+exports.app.use((0, helmet_1.default)());
+exports.app.use((0, cors_1.default)());
+exports.app.use(express_1.default.json());
+exports.app.disable('x-powered-by'); // Hide information
+exports.app.use((0, compression_1.default)());
+(0, routes_1.default)(exports.app);
+module.exports = exports.app;

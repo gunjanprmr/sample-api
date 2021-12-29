@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/server.ts",
     "compile": "tsc -p .",
     "test": "npm run compile && jest --coverage --color --detectOpenHandles",
     "start": "npm run compile && npm run dev",
@@ -21,6 +21,7 @@
     "helmet": "^4.6.0",
     "inversify": "^6.0.1",
     "mssql": "^7.3.0",
+    "node": "^12.3.0",
     "reflect-metadata": "^0.1.13",
     "winston": "^3.3.3"
   },
@@ -66,7 +67,8 @@
       "!**/*container.(t|j)s",
       "!**/*app.(t|j)s",
       "!**/*mockData.(t|j)s",
-      "!**/*repository.(t|j)s"
+      "!**/*repository.(t|j)s",
+      "!**/*server.(t|j)s"
     ],
     "roots": [
       "<rootDir>/src"
