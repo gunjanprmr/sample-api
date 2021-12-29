@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -81,39 +81,39 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
-var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
-    return (mod &amp;&amp; mod.__esModule) ? mod : <span class="branch-1 cbranch-no" title="branch not covered" >{ "default": mod };</span>
+var __importDefault = <span class="cstat-no" title="statement not covered" >(this &amp;&amp; this.__importDefault) || <span class="fstat-no" title="function not covered" >fu</span>nction (mod) {</span>
+<span class="cstat-no" title="statement not covered" >    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };</span>
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const asyncWrap_1 = __importDefault(require("../utils/asyncWrap"));
-const health_controller_1 = __importDefault(require("../controllers/health.controller"));
-const ioc_container_1 = __importDefault(require("../ioc.container"));
-const user_controller_1 = __importDefault(require("../controllers/user.controller"));
-function default_1(application) {
-    const healthController = ioc_container_1.default.get(health_controller_1.default);
-    application.get('/healthStatus', (0, asyncWrap_1.default)(healthController.healthCheck.bind(healthController)));
-    const userController = ioc_container_1.default.get(user_controller_1.default);
-    application.get('/users', (0, asyncWrap_1.default)(userController.getUsers.bind(userController)));
-    application.get('/users/:userId', (0, asyncWrap_1.default)(userController.getUser.bind(userController)));
+<span class="cstat-no" title="statement not covered" >Object.defineProperty(exports, "__esModule", { value: true });</span>
+const asyncWrap_1 = <span class="cstat-no" title="statement not covered" >__importDefault(require("../utils/asyncWrap"));</span>
+const health_controller_1 = <span class="cstat-no" title="statement not covered" >__importDefault(require("../controllers/health.controller"));</span>
+const ioc_container_1 = <span class="cstat-no" title="statement not covered" >__importDefault(require("../ioc.container"));</span>
+const user_controller_1 = <span class="cstat-no" title="statement not covered" >__importDefault(require("../controllers/user.controller"));</span>
+function <span class="fstat-no" title="function not covered" >default_1(</span>application) {
+    const healthController = <span class="cstat-no" title="statement not covered" >ioc_container_1.default.get(health_controller_1.default);</span>
+<span class="cstat-no" title="statement not covered" >    application.get('/healthStatus', (0, asyncWrap_1.default)(healthController.healthCheck.bind(healthController)));</span>
+    const userController = <span class="cstat-no" title="statement not covered" >ioc_container_1.default.get(user_controller_1.default);</span>
+<span class="cstat-no" title="statement not covered" >    application.get('/users', (0, asyncWrap_1.default)(userController.getUsers.bind(userController)));</span>
+<span class="cstat-no" title="statement not covered" >    application.get('/users/:userId', (0, asyncWrap_1.default)(userController.getUser.bind(userController)));</span>
 }
-exports.default = default_1;
+<span class="cstat-no" title="statement not covered" >exports.default = default_1;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -121,7 +121,7 @@ exports.default = default_1;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Thu Dec 23 2021 10:54:30 GMT-0500 (Eastern Standard Time)
+                at Wed Dec 29 2021 15:12:52 GMT-0500 (Eastern Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

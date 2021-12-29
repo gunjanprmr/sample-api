@@ -8,7 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 const request = require('supertest');
 const userApp = require("../app");
 describe("GET /users & GET /users/:userID API tests", () => {
@@ -27,7 +26,7 @@ describe("GET /users & GET /users/:userID API tests", () => {
             const mockUserID = "1";
             const result = yield request(userApp).get(`/users/${mockUserID}`);
             expect(result.statusCode).toEqual(200);
-        }));
+        }), 10000);
         it("Receives 404 - Not Found on unsuccessful call", () => __awaiter(void 0, void 0, void 0, function* () {
             const result = yield request(userApp).get("/invalidEndPoint");
             expect(result.statusCode).toEqual(404);

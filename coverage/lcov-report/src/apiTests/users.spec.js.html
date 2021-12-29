@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/apiTests/health.spec.js</title>
+    <title>Code coverage report for src/apiTests/users.spec.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/apiTests</a> health.spec.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/apiTests</a> users.spec.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/27</span>
+                <span class='fraction'>0/35</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
@@ -93,7 +93,13 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -110,17 +116,23 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
@@ -135,23 +147,29 @@ var __awaiter = <span class="cstat-no" title="statement not covered" >(this &amp
 };
 <span class="cstat-no" title="statement not covered" >Object.defineProperty(exports, "__esModule", { value: true });</span>
 const request = <span class="cstat-no" title="statement not covered" >require('supertest');</span>
-const app = <span class="cstat-no" title="statement not covered" >require("../app");</span>
-const health_service_1 = <span class="cstat-no" title="statement not covered" >require("../services/health.service");</span>
-<span class="cstat-no" title="statement not covered" >describe("GET /heathStatus API tests", <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    it("Receives 200 on successful call", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >__awaiter(void 0, void 0, void 0, <span class="fstat-no" title="function not covered" >fu</span>nction* () {</span></span>
-        const mockHealthCheckModel = <span class="cstat-no" title="statement not covered" >{</span>
-            dateTime: health_service_1.dateTime,
-            description: "Health Check",
-            status: "Connected",
-        };
-        const result = <span class="cstat-no" title="statement not covered" >yield request(app).get("/healthStatus");</span>
-<span class="cstat-no" title="statement not covered" >        expect(result.statusCode).toEqual(200);</span>
-<span class="cstat-no" title="statement not covered" >        expect(JSON.parse(result.text)).toEqual(mockHealthCheckModel);</span>
-    }));
-<span class="cstat-no" title="statement not covered" >    it("Receives 404 - Not Found on unsuccessful call", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >__awaiter(void 0, void 0, void 0, <span class="fstat-no" title="function not covered" >fu</span>nction* () {</span></span>
-        const result = <span class="cstat-no" title="statement not covered" >yield request(app).get("/invalidEndPoint");</span>
-<span class="cstat-no" title="statement not covered" >        expect(result.statusCode).toEqual(404);</span>
-    }));
+const userApp = <span class="cstat-no" title="statement not covered" >require("../app");</span>
+<span class="cstat-no" title="statement not covered" >describe("GET /users &amp; GET /users/:userID API tests", <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    describe("GET /users", <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        it("Receives 200 on successful call", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >__awaiter(void 0, void 0, void 0, <span class="fstat-no" title="function not covered" >fu</span>nction* () {</span></span>
+            const result = <span class="cstat-no" title="statement not covered" >yield request(userApp).get("/users");</span>
+<span class="cstat-no" title="statement not covered" >            expect(result.statusCode).toEqual(200);</span>
+        }));
+<span class="cstat-no" title="statement not covered" >        it("Receives 404 - Not Found on unsuccessful call", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >__awaiter(void 0, void 0, void 0, <span class="fstat-no" title="function not covered" >fu</span>nction* () {</span></span>
+            const result = <span class="cstat-no" title="statement not covered" >yield request(userApp).get("/invalidEndPoint");</span>
+<span class="cstat-no" title="statement not covered" >            expect(result.statusCode).toEqual(404);</span>
+        }));
+    });
+<span class="cstat-no" title="statement not covered" >    describe("GET /users/:userID", <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        it("Receives 200 on successful call", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >__awaiter(void 0, void 0, void 0, <span class="fstat-no" title="function not covered" >fu</span>nction* () {</span></span>
+            const mockUserID = <span class="cstat-no" title="statement not covered" >"1";</span>
+            const result = <span class="cstat-no" title="statement not covered" >yield request(userApp).get(`/users/${mockUserID}`);</span>
+<span class="cstat-no" title="statement not covered" >            expect(result.statusCode).toEqual(200);</span>
+        }));
+<span class="cstat-no" title="statement not covered" >        it("Receives 404 - Not Found on unsuccessful call", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >__awaiter(void 0, void 0, void 0, <span class="fstat-no" title="function not covered" >fu</span>nction* () {</span></span>
+            const result = <span class="cstat-no" title="statement not covered" >yield request(userApp).get("/invalidEndPoint");</span>
+<span class="cstat-no" title="statement not covered" >            expect(result.statusCode).toEqual(404);</span>
+        }));
+    });
 });
 &nbsp;</pre></td></tr></table></pre>
 
