@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import { createLogger, exitOnError, format, Logger, transports } from "winston";
+import { createLogger, format, Logger, transports } from "winston";
 const fs = require('fs');
 const logDir = 'logs';
 @injectable()

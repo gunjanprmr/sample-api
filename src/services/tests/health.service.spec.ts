@@ -9,6 +9,9 @@ describe("HealthService", () => {
     let mockError: any;
 
     beforeEach(async () => {
+        jest.resetModules();
+        jest.resetAllMocks();
+        
         // Mock Logger Service
         mockLoggerService = jest.fn();
         mockLoggerService.logger = jest.fn();
