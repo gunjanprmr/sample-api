@@ -3,7 +3,7 @@ const app = require("../app");
 import { HealthModel } from "../models/health.model";
 import { dateTime } from "../services/health.service";
 
-describe('GET /heathStatus', () => {
+describe("GET /heathStatus API tests", () => {
     
     it("Receives 200 on successful call", async () => {
 
@@ -21,5 +21,5 @@ describe('GET /heathStatus', () => {
     it("Receives 404 - Not Found on unsuccessful call", async () => {
         const result = await request(app).get("/invalidEndPoint");
         expect(result.statusCode).toEqual(404);
-    })
+    });
 });

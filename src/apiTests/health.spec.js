@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const request = require('supertest');
 const app = require("../app");
 const health_service_1 = require("../services/health.service");
-describe('GET /heathStatus', () => {
+describe("GET /heathStatus API tests", () => {
     it("Receives 200 on successful call", () => __awaiter(void 0, void 0, void 0, function* () {
         const mockHealthCheckModel = {
             dateTime: health_service_1.dateTime,
@@ -22,12 +22,6 @@ describe('GET /heathStatus', () => {
         const result = yield request(app).get("/healthStatus");
         expect(result.statusCode).toEqual(200);
         expect(JSON.parse(result.text)).toEqual(mockHealthCheckModel);
-        // return request(app)
-        // .get("/healthStatus")
-        // .then((response: { statusCode: any; }) => {
-        //     expect(response.statusCode).toEqual(200);
-        //     expect(response).toEqual(mockHealthCheckModel);
-        // })
     }));
     it("Receives 404 - Not Found on unsuccessful call", () => __awaiter(void 0, void 0, void 0, function* () {
         const result = yield request(app).get("/invalidEndPoint");
