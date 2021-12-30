@@ -1,0 +1,6 @@
+.jest
+.vscode/
+coverage/
+logs/
+node_modules
+.env
