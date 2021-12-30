@@ -42,6 +42,7 @@ This section list major frameworks/libraries used to bootstrap this project.
 * [TypeScript](https://www.typescriptlang.org/)
 * [InversifyJS](https://inversify.io/)
 * [Jest.js](https://jestjs.io/)
+* [Auth0](https://auth0.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -76,7 +77,7 @@ git clone https://github.com/gunjanprmr/sample-api
 - [x] Add repository layer for database connection
 - [x] Add unit tests
 - [x] Add API tests
-- [ ] Add webpack
-- [ ] Add separate code coverage for API tests
+- [x] Add Auth0 integration
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
