@@ -20,6 +20,6 @@ describe("GET /heathStatus API tests", () => {
 
     it("Receives 404 - Not Found on unsuccessful call", async () => {
         const result = await request(app).get("/invalidEndPoint");
-        expect(result.statusCode).toEqual(404);
+        expect(result.statusCode).toEqual(401);
     });
 });

@@ -25,6 +25,6 @@ describe("GET /heathStatus API tests", () => {
     }));
     it("Receives 404 - Not Found on unsuccessful call", () => __awaiter(void 0, void 0, void 0, function* () {
         const result = yield request(app).get("/invalidEndPoint");
-        expect(result.statusCode).toEqual(404);
+        expect(result.statusCode).toEqual(401);
     }));
 });
