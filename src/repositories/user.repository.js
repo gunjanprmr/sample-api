@@ -58,6 +58,36 @@ let UserRepository = class UserRepository {
             }
         });
     }
+    /**
+     * POST call to create a user
+     */
+    createUser(userModel) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                // INSERT INTO[User]
+                // VALUES('Gunjan', 'Parmar', 'gp@carvana.com', '123', GETDATE(), GETDATE(), null, null, 1, null)
+                const connect = yield mssql_1.default.connect((0, database_1.default)());
+                const user = yield connect.request()
+                    .input('FirstName', mssql_1.default.NVarChar, userModel.firstName)
+                    .input('LastName', mssql_1.default.NVarChar, userModel.lastName)
+                    .input('Email', mssql_1.default.NVarChar, userModel.email)
+                    .input('Password', mssql_1.default.NVarChar, userModel.password)
+                    .input('RowLoadedDateTime', mssql_1.default.DateTimeOffset, userModel.rowLoadedDateTime)
+                    .input('RowUpdatedDateTime', mssql_1.default.DateTimeOffset, userModel.rowUpdatedDateTime)
+                    .input('RowDeletedDateTime', mssql_1.default.DateTimeOffset, (_a = userModel.rowDeletedDateTime) !== null && _a !== void 0 ? _a : null)
+                    .input('PhoneNumber', mssql_1.default.Char, (_b = userModel.phoneNumber) !== null && _b !== void 0 ? _b : null)
+                    .input('UserTypeId', mssql_1.default.Int, userModel.userTypeId)
+                    .input('LastLoginDateTime', mssql_1.default.DateTimeOffset, (_c = userModel.lastLoginDateTime) !== null && _c !== void 0 ? _c : null)
+                    .query("INSERT INTO [USER] VALUES (@FirstName, @LastName, @Email, @Password, @RowLoadedDateTime, @RowUpdatedDateTime, @RowDeletedDateTime, @PhoneNumber, @UserTypeId, @LastLoginDateTime)");
+                return "User Created";
+            }
+            catch (error) {
+                console.log("createUser Error", error);
+                throw error;
+            }
+        });
+    }
 };
 UserRepository = __decorate([
     (0, inversify_1.injectable)()

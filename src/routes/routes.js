@@ -16,5 +16,6 @@ function default_1(application) {
     const userController = ioc_container_1.default.get(user_controller_1.default);
     application.get('/users', (0, asyncWrap_1.default)(userController.getUsers.bind(userController)));
     application.get('/users/:userId', (0, asyncWrap_1.default)(userController.getUser.bind(userController)));
+    application.post('/user', (0, asyncWrap_1.default)(userController.createUser.bind(userController)));
 }
 exports.default = default_1;

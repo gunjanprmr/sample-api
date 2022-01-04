@@ -63,6 +63,23 @@ let UserService = class UserService {
             }
         });
     }
+    /**
+     * POST call to create a user
+     */
+    createUser(userModel) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const logger = yield this.loggerService.logger(this.constructor.name);
+            try {
+                const response = yield this.userRepository.createUser(userModel);
+                logger.info(response);
+                return response;
+            }
+            catch (error) {
+                logger.error(error);
+                throw error;
+            }
+        });
+    }
 };
 UserService = __decorate([
     (0, inversify_1.injectable)(),

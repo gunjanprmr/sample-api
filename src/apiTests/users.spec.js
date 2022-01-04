@@ -13,7 +13,6 @@ const userApp = require("../app");
 describe("GET /users & GET /users/:userID API tests", () => {
     describe("GET /users", () => {
         it("Receives 200 on successful call", () => __awaiter(void 0, void 0, void 0, function* () {
-            userApp.us;
             const result = yield request(userApp).get("/users");
             expect(result.statusCode).toEqual(200);
         }));

@@ -45,4 +45,19 @@ export default class UserService {
             throw error;
         }
     }
+
+    /**
+     * POST call to create a user
+     */
+    public async createUser(userModel: UserModel): Promise<string> {
+        const logger = await this.loggerService.logger(this.constructor.name);
+        try {
+            const response  = await this.userRepository.createUser(userModel);
+            logger.info(response);
+            return response;
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
+    }
 }

@@ -5,6 +5,7 @@ import {
     Response as ExpressResponse,
 } from 'express';
 import LoggerService from "../services/logger.service";
+import { UserModel } from "../models/user.model";
 
 /**
  * Retrieve user related information.
@@ -23,7 +24,7 @@ export default class UserController {
      * @param res 
      * @returns all users
      */
-    public async getUsers(req: ExpressRequest, res: ExpressResponse): Promise<any> {
+    public async getUsers(req: ExpressRequest, res: ExpressResponse): Promise<UserModel[]> {
         const logger = await this.loggerService.logger(this.constructor.name);
         try {
             const response = await this.userService.getUsers();
@@ -43,7 +44,7 @@ export default class UserController {
      * @param userId 
      * @returns 
      */
-    public async getUser(req: ExpressRequest, res: ExpressResponse): Promise<any> {
+    public async getUser(req: ExpressRequest, res: ExpressResponse): Promise<UserModel> {
         const logger = await this.loggerService.logger(this.constructor.name);
         try {
             const userId = +req.params.userId;
@@ -56,5 +57,25 @@ export default class UserController {
             throw error;
         }
         
+    }
+
+    /**
+     * Create the user
+     * @param req 
+     * @param res 
+     * @returns newly created user (UserModel)
+     */
+    public async createUser(req: ExpressRequest, res: ExpressResponse): Promise<string> {
+        const logger = await this.loggerService.logger(this.constructor.name);
+        try {
+            const userModel = req.body as UserModel;
+            const response = await this.userService.createUser(userModel);
+            logger.debug(response);
+            res.send(response);
+            return response;
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
     }
 }

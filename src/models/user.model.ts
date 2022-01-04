@@ -6,7 +6,7 @@ export interface UserModel {
     password: string,
     rowLoadedDateTime: string,
     rowUpdatedDateTime: string,
-    rowDeletedDateTime: string,
+    rowDeletedDateTime?: string,
     phoneNumber?: string,
     userTypeId: string,
     lastLoginDateTime?: string,

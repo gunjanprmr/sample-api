@@ -15,4 +15,5 @@ export default function (application: Application) {
     const userController = container.get<UserController>(UserController); 
     application.get('/users', asyncWrap(userController.getUsers.bind(userController)));
     application.get('/users/:userId', asyncWrap(userController.getUser.bind(userController)));
+    application.post('/user', asyncWrap(userController.createUser.bind(userController)))
 }

@@ -71,6 +71,28 @@ let UserController = class UserController {
             }
         });
     }
+    /**
+     * Create the user
+     * @param req
+     * @param res
+     * @returns newly created user (UserModel)
+     */
+    createUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const logger = yield this.loggerService.logger(this.constructor.name);
+            try {
+                const userModel = req.body;
+                const response = yield this.userService.createUser(userModel);
+                logger.debug(response);
+                res.send(response);
+                return response;
+            }
+            catch (error) {
+                logger.error(error);
+                throw error;
+            }
+        });
+    }
 };
 UserController = __decorate([
     (0, inversify_1.injectable)(),
