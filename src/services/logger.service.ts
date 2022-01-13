@@ -1,6 +1,8 @@
 import { injectable } from "inversify";
 import { createLogger, format, Logger, transports } from "winston";
 import fs from 'fs';
+import DailyRotateFile = require("winston-daily-rotate-file");
+
 const logDir = 'logs';
 @injectable()
 export default class LoggerService {
@@ -13,16 +15,18 @@ export default class LoggerService {
             fs.mkdirSync(logDir);
         }
 
+        const dailyRotateFileTransport = new DailyRotateFile({
+            filename: `${logDir}/%DATE%-results.log`,
+            datePattern: 'YYYY-MM-DD'
+        });
+        
         return createLogger({
             format: format.combine(
-                format.colorize(),
                 format.timestamp(),
                 format.printf((info) => `${info.timestamp} ${info.service} ${info.level}: ${JSON.stringify(info.message)}`),
             ),
             transports: [
-                new transports.File({
-                    filename: './logs/winston.log',
-                }),             
+                dailyRotateFileTransport,             
             ],
             exitOnError: false,
             defaultMeta: {
