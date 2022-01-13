@@ -1,5 +1,6 @@
 const request = require('supertest');
-const userApp = require("../app");
+// const userApp = require("../app");
+const userApp = require("../../app")
 
 describe("GET /users & GET /users/:userID API tests", () => {
     describe("GET /users", () => {

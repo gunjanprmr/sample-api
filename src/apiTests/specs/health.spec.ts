@@ -1,7 +1,7 @@
 const request = require('supertest');
-const app = require("../app");
-import { HealthModel } from "../models/health.model";
-import { dateTime } from "../services/health.service";
+const app = require("../../app");
+import { HealthModel } from "../../models/health.model";
+import { dateTime } from "../../services/health.service";
 
 describe("GET /heathStatus API tests", () => {
     
