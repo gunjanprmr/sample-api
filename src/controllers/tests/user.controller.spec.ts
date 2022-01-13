@@ -24,6 +24,9 @@ describe("UserController", () => {
         mockUserService.getUser = jest.fn(() => {
             return Promise.resolve(mockUser);
         });
+        mockUserService.createUser = jest.fn(() => {
+            return Promise.resolve(mockUser);
+        });
 
         // Mock Logger Service
         mockLoggerService = jest.fn();
@@ -101,6 +104,33 @@ describe("UserController", () => {
 
             try {
                 await userController.getUser(req, res);
+                fail("shouldn't be here")
+            } catch (error) {
+                expect(error).toEqual(fakeError);
+            }
+        });
+    });
+
+    describe("createUser", () => {
+        it("Success", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockDebug);
+            const output = await userController.createUser(req, res);
+            expect(output).toEqual(mockUser);
+            expect(res.send).toHaveBeenCalled();
+            expect(res.send).toBeCalledTimes(1);
+            expect(mockUserService.createUser).toHaveBeenCalled();
+            expect(mockUserService.createUser).toBeCalledTimes(1);
+        });
+
+        it("handles error", async () => {
+            mockLoggerService.logger.mockReturnValueOnce(mockError);
+            const fakeError = "Can't create user";
+            mockUserService.createUser = jest.fn(() => {
+                return Promise.reject(fakeError);
+            });
+
+            try {
+                await userController.createUser(req, res);
                 fail("shouldn't be here")
             } catch (error) {
                 expect(error).toEqual(fakeError);
