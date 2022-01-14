@@ -23,7 +23,7 @@
     "inversify": "^6.0.1",
     "jwks-rsa": "^2.0.5",
     "mssql": "^7.3.0",
-    "node": "^12.3.0",
+    "node": "^16.0.0",
     "reflect-metadata": "^0.1.13",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
