@@ -43,9 +43,6 @@ export default class UserRepository {
      */
     public async createUser(userModel: UserModel): Promise<string> {
         try {
-
-            // INSERT INTO[User]
-            // VALUES('Gunjan', 'Parmar', 'gp@carvana.com', '123', GETDATE(), GETDATE(), null, null, 1, null)
             const connect = await sql.connect(sqlConnect());
             const user = await connect.request()
                 .input('FirstName', sql.NVarChar, userModel.firstName)
@@ -59,7 +56,6 @@ export default class UserRepository {
                 .input('UserTypeId', sql.Int, userModel.userTypeId)
                 .input('LastLoginDateTime', sql.DateTimeOffset, userModel.lastLoginDateTime ?? null)
                 .query("INSERT INTO [USER] VALUES (@FirstName, @LastName, @Email, @Password, @RowLoadedDateTime, @RowUpdatedDateTime, @RowDeletedDateTime, @PhoneNumber, @UserTypeId, @LastLoginDateTime)")
-                       
             return "User Created";
         } catch (error) {
             console.log("createUser Error", error);
