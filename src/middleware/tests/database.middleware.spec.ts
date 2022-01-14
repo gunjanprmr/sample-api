@@ -1,4 +1,4 @@
-import sqlConnect from "../database";
+import sqlConnect from "../database.middleware";
 
 describe("Database", () => {
 

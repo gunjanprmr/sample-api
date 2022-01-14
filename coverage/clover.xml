@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642172533795" clover="3.2.0">
-  <project timestamp="1642172533796" name="All files">
+<coverage generated="1642174121520" clover="3.2.0">
+  <project timestamp="1642174121520" name="All files">
     <metrics statements="115" coveredstatements="113" conditionals="1" coveredconditionals="1" methods="19" coveredmethods="19" elements="135" coveredelements="133" complexity="0" loc="115" ncloc="115" packages="4" files="9" classes="9"/>
     <package name="controllers">
       <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
@@ -51,6 +51,31 @@
         <line num="75" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
         <line num="78" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="middleware">
+      <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="asyncWrap.middleware.ts" path="/Users/GParmar/MyPlayground/sample-api/src/middleware/asyncWrap.middleware.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+      <file name="authz.middleware.ts" path="/Users/GParmar/MyPlayground/sample-api/src/middleware/authz.middleware.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+      <file name="database.middleware.ts" path="/Users/GParmar/MyPlayground/sample-api/src/middleware/database.middleware.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
       </file>
     </package>
     <package name="routes">
@@ -129,31 +154,6 @@
         <line num="57" count="1" type="stmt"/>
         <line num="59" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="utils">
-      <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="asyncWrap.ts" path="/Users/GParmar/MyPlayground/sample-api/src/utils/asyncWrap.ts">
-        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="8" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-      </file>
-      <file name="authz.middleware.ts" path="/Users/GParmar/MyPlayground/sample-api/src/utils/authz.middleware.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-      </file>
-      <file name="database.ts" path="/Users/GParmar/MyPlayground/sample-api/src/utils/database.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
       </file>
     </package>
   </project>

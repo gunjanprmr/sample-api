@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { UserModel } from "../models/user.model";
-import sqlConnect from "../utils/database";
+import sqlConnect from "../middleware/database.middleware";
 import sql from "mssql";
 
 @injectable()

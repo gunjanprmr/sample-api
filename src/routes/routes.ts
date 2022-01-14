@@ -1,9 +1,9 @@
 import { Application } from "express";
-import asyncWrap from "../utils/asyncWrap";
+import asyncWrap from "../middleware/asyncWrap.middleware";
 import HealthController from "../controllers/health.controller";
 import container from "../ioc.container";
 import UserController from "../controllers/user.controller";
-import { checkJwt } from "../utils/authz.middleware";
+import { checkJwt } from "../middleware/authz.middleware";
 
 export default function (application: Application) {
     

@@ -37,7 +37,7 @@ describe("HealthService", () => {
     });
 
     it("handles error", async () => {
-        const fakeError = "Cannot read property 'error'";
+        const fakeError = "Cannot read";
         
 
         try {
