@@ -6,6 +6,21 @@ import HealthService from "./services/health.service";
 import LoggerService from "./services/logger.service";
 import UserService from "./services/user.service";
 
+/**
+ *** APPROACH on Dependency Injection and IOC Container ***
+ * 
+ * IoC container 
+ *  - Uses a class constructor to identify and inject its dependencies. 
+ * 
+ * DI
+ *  - Write code that adheres to the SOLID principles.
+ *  - Helps in Unit testing.
+ *  - Boilerplate code is reduced, as initializing of dependencies is done by the injector component.
+ *  - Extending the application becomes easier.
+ *  - Helps to enable loose coupling, which is important in application programming.
+ */
+
+
 
 let container = new Container();
 
