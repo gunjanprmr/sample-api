@@ -16,8 +16,8 @@ export const app = express();
 /**
  *  App Configuration
  */
-app.use(helmet());
-app.use(cors());
+app.use(helmet()); // Express middleware to secure your apps by setting various HTTP headers, which mitigate common attack vectors.
+app.use(cors()); // Express middleware to enable CORS with various options.
 app.use(express.json());
 app.disable('x-powered-by'); // Hide information
 app.use(compress());
