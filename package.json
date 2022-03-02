@@ -4,11 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/server.ts",
-    "compile": "tsc -p .",
-    "test": "npm run compile && jest --coverage --color --detectOpenHandles",
-    "start": "npm run compile && npm run dev",
-    "apiTest": "npm run compile && jest './src/apiTests'"
+    "start": "ts-node-dev --respawn --pretty --transpile-only src/server.ts",
+    "test": "jest --coverage --color --detectOpenHandles",
+    "apiTest": "jest './src/apiTests'"
   },
   "keywords": [],
   "author": "",
