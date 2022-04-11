@@ -43,6 +43,7 @@ This section list major frameworks/libraries used to bootstrap this project.
 * [InversifyJS](https://inversify.io/)
 * [Jest.js](https://jestjs.io/)
 * [Auth0](https://auth0.com/)
+* [Winston](https://github.com/winstonjs/winston)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
