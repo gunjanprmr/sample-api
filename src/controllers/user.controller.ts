@@ -6,6 +6,7 @@ import {
 } from 'express';
 import LoggerService from "../services/logger.service";
 import { UserModel } from "../models/user.model";
+import { AuthUserModel } from "../models/authUser.model";
 
 /**
  * Retrieve user related information.
@@ -31,6 +32,19 @@ export default class UserController {
             logger.debug(response);
             res.send(response);
             return response; 
+        } catch (error) {
+            logger.error(error);
+            throw error;
+        }
+    }
+
+    public async getUsers2(req: ExpressRequest, res: ExpressResponse): Promise<AuthUserModel[]> {
+        const logger = await this.loggerService.logger(this.constructor.name);
+        try {
+            const response = await this.userService.getUsers2();
+            logger.debug(response);
+            res.send(response);
+            return response;
         } catch (error) {
             logger.error(error);
             throw error;
